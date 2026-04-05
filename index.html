@@ -3,242 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amandeep Srivastava</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Amandeep Srivastava — Infrastructure & Platform Engineer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-name">AS</a>
+    <a href="#" class="logo">AS<span class="logo-dot">.</span></a>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
+<!-- ======== Hero ======== -->
 <section class="hero">
-  <div class="container">
-    <p class="hero-greeting">Hi, I'm</p>
-    <h1>Amandeep Srivastava</h1>
-    <p class="hero-subtitle">Senior Software Engineer @ LinkedIn</p>
-    <p class="hero-tagline">Infrastructure Platforms &middot; IaC &middot; Platform Engineering</p>
-    <div class="hero-links">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Open to mentorship &amp; collaboration
+    </div>
+    <h1>Amandeep <span class="gradient-text">Srivastava</span></h1>
+    <p class="hero-tagline">I build infrastructure platforms that scale.</p>
+    <p class="hero-desc">Senior Software Engineer at LinkedIn &mdash; designing IaC platforms, control planes, and developer tooling used by 7,000+ engineers.</p>
+    <div class="hero-cta">
       <a href="https://www.linkedin.com/in/amandeepsrivastava" target="_blank" class="btn btn-primary">LinkedIn</a>
-      <a href="mailto:amandeep.srivastava1996@gmail.com" class="btn btn-secondary">Email</a>
+      <a href="https://github.com/srivama15" target="_blank" class="btn btn-ghost">GitHub</a>
+      <a href="mailto:amandeep.srivastava1996@gmail.com" class="btn btn-ghost">Email</a>
     </div>
   </div>
 </section>
 
-<section id="about" class="about">
+<!-- ======== Metrics ======== -->
+<section class="metrics">
   <div class="container">
-    <h2>About</h2>
-    <p>
-      I build infrastructure platforms at LinkedIn that make it safer, faster, and simpler
-      for engineers to provision and operate distributed systems at scale.
-    </p>
-    <p>
-      Over the past 4 years, I've worked across LinkedIn's core infrastructure stack &mdash;
-      from building and operating the platform control plane that powers 50+ infrastructure
-      systems (Espresso, MySQL, Couchbase, Temporal, and others), to designing LinkedIn's
-      greenfield Infrastructure-as-Code platform from the authoring layer through CI/CD
-      and into production.
-    </p>
-    <p>
-      Earlier, I designed a streaming-based quota auto-rightsizing framework for
-      LinkedIn's Espresso document store and built centralized logging infrastructure
-      for Airflow at LinkedIn scale. Before LinkedIn, I spent 3 years at Goldman Sachs
-      building distributed graph infrastructure for fraud detection and
-      knowledge-graph-powered search systems.
-    </p>
-
-    <div class="metrics">
-      <div class="metric">
-        <span class="metric-number">7,000+</span>
+    <div class="metrics-grid reveal">
+      <div class="metric-card">
+        <span class="counter" data-target="7000" data-suffix="+">0</span>
         <span class="metric-label">Engineers using CLI tooling I architected</span>
       </div>
-      <div class="metric">
-        <span class="metric-number">150+</span>
-        <span class="metric-label">Microservices onboarded via agentic AI workflows</span>
+      <div class="metric-card">
+        <span class="counter" data-target="150" data-suffix="+">0</span>
+        <span class="metric-label">Services onboarded via agentic AI workflows</span>
       </div>
-      <div class="metric">
-        <span class="metric-number">5,000+</span>
+      <div class="metric-card">
+        <span class="counter" data-target="5000" data-suffix="+">0</span>
         <span class="metric-label">Codebases impacted by CI framework extensions</span>
       </div>
-      <div class="metric">
-        <span class="metric-number">90%</span>
+      <div class="metric-card">
+        <span class="counter" data-target="90" data-suffix="%">0</span>
         <span class="metric-label">Reduction in CI validation times</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="experience" class="experience">
-  <div class="container">
-    <h2>Experience</h2>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Senior Software Engineer</h3>
-            <span class="timeline-company">LinkedIn</span>
-            <span class="timeline-date">Sep 2024 &ndash; Present</span>
-          </div>
-          <p class="timeline-role-desc">Infrastructure-as-Code Platform & Developer Tooling &mdash; Core Infrastructure</p>
-          <p class="timeline-framing">
-            Contributing engineer on LinkedIn's foundational Infrastructure-as-Code platform
-            &mdash; a company-wide initiative to standardize how all infrastructure is defined,
-            built, and managed using Kubernetes, Crossplane, and GitOps. Owner of the authoring,
-            CI, and developer tooling layers.
-          </p>
-          <ul>
-            <li>Conceived and architected a unified CLI tool that became the backbone of LinkedIn's IaC ecosystem &mdash; powering manifest authoring, validation, Helm chart publishing, drift detection, and admin operations across 7,000+ engineers.</li>
-            <li>Designed and productionized agentic AI workflows for infrastructure onboarding, enabling 150+ microservices to migrate onto IaC with zero outages and eliminating 100+ hours of manual effort.</li>
-            <li>Led IaC's Authoring, CI, and Drift pods &mdash; managing 2 ICs, setting sprint priorities, and driving cross-org alignment with CI validation, GitHub, security, and deployment platform teams.</li>
-            <li>Introduced shift-left dynamic validations in CI that catch infrastructure misconfigurations during the PR phase, saving ~40 minutes per erroneous PR and preventing deployment-time failures.</li>
-            <li>Extended LinkedIn's internal CI validation framework to support selective rule execution and multi-repo Helm validation &mdash; adopted across 5,000+ codebases, reducing IaC static validation time from 2.5 minutes to 14 seconds.</li>
-            <li>Designed IaC's base chart abstraction and long-running operations model, enabling Espresso users to provision databases via simple YAML without understanding Kubernetes internals &mdash; cutting operational setup time by 50%.</li>
-            <li>Authored the manifest scope redesign RFC and multi-YAML authoring model, establishing deterministic merge semantics and ownership boundaries for scalable infrastructure authoring across platforms.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Software Engineer</h3>
-            <span class="timeline-company">LinkedIn</span>
-            <span class="timeline-date">May 2022 &ndash; Sep 2024</span>
-          </div>
-          <p class="timeline-role-desc">Infrastructure Control Plane Engineering &mdash; Core Infrastructure</p>
-          <ul>
-            <li>Independently delivered an end-to-end platform migration for LinkedIn's MySQL infrastructure onto a modernized control plane, redesigning long-running provisioning and deletion workflows into async operations.</li>
-            <li>Built and shipped an AI-powered infrastructure copilot with streaming responses (10x latency improvement), resolving 20% of monthly on-call queries and reducing operational toil across the platform's partner ecosystem.</li>
-            <li>Owned the resource insights service for Espresso &mdash; handling 17% of all control plane traffic, powering cluster selection, delete protection, quota validation, and cost estimation for LinkedIn's document store platform.</li>
-            <li>Integrated 5 infrastructure platforms (MySQL, Couchbase, Temporal, TiDB, and others) into LinkedIn's self-serve control plane, saving partners 10+ hours/week of manual provisioning and enabling non-Java teams to write resource providers.</li>
-            <li>Designed and built a streaming-based quota auto-rightsizing framework for Espresso with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking via Kafka and Kusto.</li>
-            <li>Built a generic platform metadata syncer that reconciled 670+ stale records across environments, addressed a 3x inventory gap, and became the template for all subsequent platform integrations.</li>
-            <li>Designed and built a generic multi-channel notification service from scratch (email, Slack, in-app) enabling async workflow alerts and proactive user notifications across the platform ecosystem.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Sr. Software Engineer</h3>
-            <span class="timeline-company">Goldman Sachs</span>
-            <span class="timeline-date">Dec 2021 &ndash; May 2022</span>
-          </div>
-          <ul>
-            <li>Built distributed graph infrastructure for fraud detection using a database-agnostic service layer over AWS Neptune and JanusGraph.</li>
-            <li>Developed a graph search platform on Elasticsearch with autocomplete, fuzzy matching, and weighted entity ranking across large knowledge graphs.</li>
-            <li>Designed a corporate coverage platform using Cassandra and Vert.x, improving API response times by ~35% over the legacy system.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Software Engineer</h3>
-            <span class="timeline-company">Goldman Sachs</span>
-            <span class="timeline-date">May 2019 &ndash; Dec 2021</span>
-          </div>
-          <ul>
-            <li>Built a news recommendation engine for investment research analysts using quota-based ranking to surface relevant documents.</li>
-            <li>Collaborated cross-functionally to enhance Goldman Sachs' knowledge graph, improving search relevancy for an ML-powered research engine using Java, Scala, PySpark, Apache Jena, and Gremlin.</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+<!-- ======== Projects ======== -->
 <section id="projects" class="projects">
   <div class="container">
-    <h2>Key Projects</h2>
-    <div class="project-grid">
+    <div class="section-header reveal">
+      <span class="section-tag">// projects</span>
+      <h2>What I've Built</h2>
+    </div>
+    <div class="bento-grid">
 
-      <div class="project-card">
+      <div class="project-card featured reveal">
         <div class="project-tag">IaC Platform</div>
         <h3>Unified IaC CLI</h3>
-        <p>Conceived and architected a CLI tool that became the backbone of LinkedIn's IaC ecosystem. Powers authoring, validation, publishing, drift detection, and AI-assisted workflows for 7,000+ engineers.</p>
+        <p>The backbone of LinkedIn's IaC ecosystem. One CLI for authoring, validating, publishing, and managing infrastructure manifests &mdash; used by 7,000+ engineers daily.</p>
         <div class="project-tech">
           <span>Go</span><span>Kubernetes</span><span>Helm</span><span>Crossplane</span>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-tag">AI + Infrastructure</div>
+      <div class="project-card reveal">
+        <div class="project-tag">AI + Infra</div>
+        <h3>Infrastructure Copilot</h3>
+        <p>AI-powered assistant with streaming responses (10x latency improvement). Resolves 20% of monthly on-call queries autonomously.</p>
+        <div class="project-tech">
+          <span>Python</span><span>LLM</span><span>Streaming</span><span>React</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tag">Developer Tooling</div>
+        <h3>CI Validation Framework</h3>
+        <p>Extended LinkedIn's CI framework for selective rule execution and multi-repo Helm validation. Adopted across 5,000+ codebases, cut validation from 2.5 min to 14 sec.</p>
+        <div class="project-tech">
+          <span>Go</span><span>CI/CD</span><span>GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="project-card featured reveal">
+        <div class="project-tag">AI + Infra</div>
         <h3>Agentic IaC Onboarding</h3>
-        <p>Designed agentic AI workflows that convert infrastructure intent into governed IaC manifests. Onboarded 150+ microservices with zero outages, compressing a 6-month target into 2 months.</p>
+        <p>AI agents that turn infrastructure intent into production-ready IaC manifests. Migrated 150+ microservices in 2 months (target was 6), zero outages.</p>
         <div class="project-tech">
           <span>Python</span><span>LLM Agents</span><span>GitOps</span><span>Helm</span>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-tag">AI + Infrastructure</div>
-        <h3>Infrastructure Copilot</h3>
-        <p>Built an AI-powered copilot with streaming responses (10x latency improvement) that resolves 20% of monthly on-call queries, reducing operational toil across the platform ecosystem.</p>
-        <div class="project-tech">
-          <span>Python</span><span>Streaming</span><span>LLM</span><span>React</span>
-        </div>
-      </div>
-
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="project-tag">Platform Engineering</div>
-        <h3>CI Validation Framework Extensions</h3>
-        <p>Extended LinkedIn's internal CI framework to support selective rule execution and multi-repo Helm validation. Adopted across 5,000+ codebases, reducing validation times by 90%.</p>
-        <div class="project-tech">
-          <span>Go</span><span>CI/CD</span><span>GitHub Actions</span><span>Helm</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-tag">Platform Engineering</div>
-        <h3>Platform Control Plane Integrations</h3>
-        <p>Integrated MySQL, Couchbase, Temporal, TiDB, and others into LinkedIn's self-serve control plane. Saved partners 10+ hours/week and enabled non-Java teams to build resource providers.</p>
+        <h3>Control Plane Integrations</h3>
+        <p>Plugged MySQL, Couchbase, Temporal, TiDB into LinkedIn's self-serve control plane. Saved partners 10+ hours/week of manual provisioning.</p>
         <div class="project-tech">
           <span>Java</span><span>gRPC</span><span>Kafka</span><span>REST</span>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="project-tag">Systems Design</div>
-        <h3>Quota Auto-Rightsizing Framework</h3>
-        <p>Designed a streaming-based framework for Espresso with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking.</p>
+        <h3>Quota Auto-Rightsizing</h3>
+        <p>Streaming-based framework for Espresso with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking.</p>
         <div class="project-tech">
           <span>Java</span><span>Kafka</span><span>Kusto</span><span>Samza</span>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-tag">Systems Design</div>
-        <h3>Resource Insights Service</h3>
-        <p>Owned the resource insights service handling 17% of all control plane traffic &mdash; powering cluster selection, delete protection, quota validation, and cost estimation for LinkedIn's document store.</p>
-        <div class="project-tech">
-          <span>Java</span><span>REST</span><span>Cron</span><span>Autometrics</span>
-        </div>
-      </div>
-
-      <div class="project-card">
+      <div class="project-card reveal">
         <div class="project-tag">Graph Systems</div>
-        <h3>Distributed Graph Infrastructure</h3>
-        <p>Built database-agnostic graph services at Goldman Sachs for fraud detection (AWS Neptune, JanusGraph) and knowledge-graph-powered search (Elasticsearch).</p>
+        <h3>Graph Infrastructure</h3>
+        <p>Database-agnostic graph services at Goldman Sachs for fraud detection and knowledge-graph search across large entity graphs.</p>
         <div class="project-tech">
           <span>Java</span><span>Gremlin</span><span>Neptune</span><span>Elasticsearch</span>
         </div>
@@ -248,50 +143,82 @@
   </div>
 </section>
 
-<section id="skills" class="skills">
+<!-- ======== Experience ======== -->
+<section id="experience" class="experience">
   <div class="container">
-    <h2>Skills</h2>
-    <div class="skill-tags">
-      <span>Kubernetes</span>
-      <span>Helm</span>
-      <span>Infrastructure as Code</span>
-      <span>Crossplane</span>
-      <span>Python</span>
-      <span>Java</span>
-      <span>Go</span>
-      <span>CI/CD</span>
-      <span>GitHub Actions</span>
-      <span>ArgoCD</span>
-      <span>Kafka</span>
-      <span>Elasticsearch</span>
-      <span>gRPC</span>
-      <span>Distributed Systems</span>
-      <span>AI/ML Infrastructure</span>
-      <span>AWS</span>
-      <span>Cassandra</span>
-      <span>REST APIs</span>
+    <div class="section-header reveal">
+      <span class="section-tag">// experience</span>
+      <h2>Where I've Worked</h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-status">
+          <span class="status-dot"></span> Current
+        </div>
+        <h3>Senior Software Engineer</h3>
+        <span class="exp-company">LinkedIn</span>
+        <span class="exp-date">Sep 2024 &ndash; Present</span>
+        <p>IaC platform owner &mdash; authoring, CI, developer tooling, and agentic onboarding for Core Infrastructure.</p>
+      </div>
+      <div class="exp-card reveal">
+        <h3>Software Engineer</h3>
+        <span class="exp-company">LinkedIn</span>
+        <span class="exp-date">May 2022 &ndash; Sep 2024</span>
+        <p>Infrastructure control plane engineering &mdash; built the copilot, quota framework, and integrated 5 platforms.</p>
+      </div>
+      <div class="exp-card reveal">
+        <h3>Software Engineer &rarr; Sr. SWE</h3>
+        <span class="exp-company">Goldman Sachs</span>
+        <span class="exp-date">May 2019 &ndash; May 2022</span>
+        <p>Distributed graph infrastructure for fraud detection and knowledge-graph search systems.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="education">
+<!-- ======== About (Terminal) ======== -->
+<section id="about" class="about">
   <div class="container">
-    <h2>Education</h2>
-    <div class="edu-item">
-      <h3>Indian Institute of Technology (ISM), Dhanbad</h3>
-      <p>B.Tech (Honors), Computer Science and Engineering &middot; 2015 &ndash; 2019</p>
+    <div class="section-header reveal">
+      <span class="section-tag">// about</span>
+      <h2>A Bit More</h2>
+    </div>
+    <div class="terminal reveal">
+      <div class="terminal-bar">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">about.sh</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="prompt">$</span> whoami</p>
+        <p class="terminal-output">Amandeep Srivastava &mdash; Infrastructure &amp; Platform Engineer</p>
+        <br>
+        <p><span class="prompt">$</span> cat journey.log</p>
+        <p class="terminal-output">4 years at LinkedIn building the systems behind the systems.<br>Started with graph infrastructure for fraud detection at Goldman Sachs.<br>Now designing how 7,000+ engineers provision and operate infra at scale.</p>
+        <br>
+        <p><span class="prompt">$</span> echo $EDUCATION</p>
+        <p class="terminal-output">IIT (ISM) Dhanbad &middot; B.Tech CS (Honors) &middot; Class of 2019</p>
+        <br>
+        <p><span class="prompt">$</span> echo $INTERESTS</p>
+        <p class="terminal-output">distributed-systems, infrastructure-as-code, developer-tooling, AI-for-infra</p>
+        <br>
+        <p><span class="prompt">$</span> <span class="cursor">_</span></p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ======== Contact ======== -->
 <section id="contact" class="contact">
-  <div class="container">
-    <h2>Get in Touch</h2>
-    <p>Open to conversations about infrastructure platforms, IaC, and systems at scale.</p>
+  <div class="container reveal">
+    <span class="section-tag">// contact</span>
+    <h2>Let's Connect</h2>
+    <p>Open to conversations about infrastructure, platform engineering, and building at scale.</p>
     <div class="contact-links">
-      <a href="mailto:amandeep.srivastava1996@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/amandeepsrivastava" target="_blank">LinkedIn</a>
-      <a href="https://github.com/amandeepsrivastava" target="_blank">GitHub</a>
+      <a href="mailto:amandeep.srivastava1996@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/amandeepsrivastava" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/srivama15" target="_blank" class="btn btn-ghost">GitHub</a>
     </div>
   </div>
 </section>
@@ -301,6 +228,44 @@
     <p>&copy; 2026 Amandeep Srivastava</p>
   </div>
 </footer>
+
+<script>
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Animated counters
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const step = Math.ceil(target / 50);
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = current.toLocaleString() + suffix;
+      }, 25);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+</script>
 
 </body>
 </html>
