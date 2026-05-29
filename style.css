@@ -1,12 +1,12 @@
 /* ============================================
-   Amandeep Srivastava — Portfolio v2
+   Amandeep Srivastava - Portfolio v2
    Dark theme, bento grid, terminal aesthetic
    ============================================ */
 
 :root {
   --bg: #09090b;
   --bg-subtle: #111113;
-  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card: #101014;
   --border: rgba(255, 255, 255, 0.06);
   --border-hover: rgba(59, 130, 246, 0.4);
   --text: #d4d4d8;
@@ -24,11 +24,11 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; background: var(--bg); }
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -140,6 +140,16 @@ nav {
 .hero-content {
   position: relative;
   z-index: 1;
+}
+
+.site-net {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .hero-badge {
@@ -277,7 +287,7 @@ nav {
   padding: 48px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: var(--bg-subtle);
+  background: rgba(13, 13, 16, 0.9);
 }
 
 .metrics-grid {
@@ -326,7 +336,7 @@ nav {
 
 .project-card:hover {
   border-color: var(--border-hover);
-  background: rgba(255, 255, 255, 0.05);
+  background: #16161c;
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.08);
   transform: translateY(-2px);
 }
@@ -398,7 +408,7 @@ nav {
 
 .exp-card:hover {
   border-color: var(--border-hover);
-  background: rgba(255, 255, 255, 0.05);
+  background: #16161c;
 }
 
 .exp-status {
@@ -520,6 +530,7 @@ nav {
 
 .contact {
   text-align: center;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(9, 9, 11, 0.92) 30%, rgba(9, 9, 11, 0) 75%);
 }
 
 .contact .section-tag { display: block; margin-bottom: 8px; }
@@ -572,6 +583,7 @@ footer p {
 .bento-grid .reveal:nth-child(5) { transition-delay: 0.32s; }
 .bento-grid .reveal:nth-child(6) { transition-delay: 0.4s; }
 .bento-grid .reveal:nth-child(7) { transition-delay: 0.48s; }
+.bento-grid .reveal:nth-child(8) { transition-delay: 0.56s; }
 
 .exp-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
 .exp-grid .reveal:nth-child(3) { transition-delay: 0.2s; }

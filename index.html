@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amandeep Srivastava — Infrastructure & Platform Engineer</title>
+  <title>Amandeep Srivastava · Infrastructure & Platform Engineer</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<canvas class="site-net" id="siteNet" aria-hidden="true"></canvas>
 
 <nav>
   <div class="nav-inner">
@@ -28,13 +30,9 @@
   <div class="hero-grid-bg"></div>
   <div class="hero-glow"></div>
   <div class="container hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Open to mentorship &amp; collaboration
-    </div>
     <h1>Amandeep <span class="gradient-text">Srivastava</span></h1>
-    <p class="hero-tagline">I build infrastructure platforms that scale.</p>
-    <p class="hero-desc">Senior Software Engineer at LinkedIn &mdash; designing IaC platforms, control planes, and developer tooling used by 7,000+ engineers.</p>
+    <p class="hero-tagline">I build infrastructure platforms that scale, and the agents that run them.</p>
+    <p class="hero-desc">Senior Software Engineer at LinkedIn. I've spent the last few years building the control planes and tooling that 10,000+ engineers use to provision and operate 30+ infrastructure platforms, and now I'm layering production agentic AI on top to make them faster, more self-serve, and in some cases fully automated.</p>
     <div class="hero-cta">
       <a href="https://www.linkedin.com/in/amandeepsrivastava" target="_blank" class="btn btn-primary">LinkedIn</a>
       <a href="https://github.com/srivama15" target="_blank" class="btn btn-ghost">GitHub</a>
@@ -48,20 +46,20 @@
   <div class="container">
     <div class="metrics-grid reveal">
       <div class="metric-card">
-        <span class="counter" data-target="7000" data-suffix="+">0</span>
-        <span class="metric-label">Engineers using CLI tooling I architected</span>
+        <span class="counter" data-target="10000" data-suffix="+">0</span>
+        <span class="metric-label">Engineers on the platforms &amp; tooling I build</span>
       </div>
       <div class="metric-card">
-        <span class="counter" data-target="150" data-suffix="+">0</span>
-        <span class="metric-label">Services onboarded via agentic AI workflows</span>
+        <span class="counter" data-target="30" data-suffix="+">0</span>
+        <span class="metric-label">Platforms powered by the resource manager I built</span>
       </div>
       <div class="metric-card">
-        <span class="counter" data-target="5000" data-suffix="+">0</span>
-        <span class="metric-label">Codebases impacted by CI framework extensions</span>
+        <span class="counter" data-target="250" data-suffix="+">0</span>
+        <span class="metric-label">Stateless services onboarded to IaC via agentic AI</span>
       </div>
       <div class="metric-card">
         <span class="counter" data-target="90" data-suffix="%">0</span>
-        <span class="metric-label">Reduction in CI validation times</span>
+        <span class="metric-label">Reduction in infra CI validation time</span>
       </div>
     </div>
   </div>
@@ -78,44 +76,17 @@
 
       <div class="project-card featured reveal">
         <div class="project-tag">IaC Platform</div>
-        <h3>Unified IaC CLI</h3>
-        <p>The backbone of LinkedIn's IaC ecosystem. One CLI for authoring, validating, publishing, and managing infrastructure manifests &mdash; used by 7,000+ engineers daily.</p>
+        <h3>IaC Control Plane &amp; CLI</h3>
+        <p>The control plane and unified CLI behind a company-wide effort to move all infrastructure provisioning onto a single IaC stack. I architected it to handle authoring, validation, publishing, and full lifecycle management across many platforms, and 10,000+ engineers use it daily. I drove it to production-readiness and cut CLI cold-start from 30s to ~200ms.</p>
         <div class="project-tech">
-          <span>Go</span><span>Kubernetes</span><span>Helm</span><span>Crossplane</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tag">AI + Infra</div>
-        <h3>Infrastructure Copilot</h3>
-        <p>AI-powered assistant with streaming responses (10x latency improvement). Resolves 20% of monthly on-call queries autonomously.</p>
-        <div class="project-tech">
-          <span>Python</span><span>LLM</span><span>Streaming</span><span>React</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tag">Developer Tooling</div>
-        <h3>CI Validation Framework</h3>
-        <p>Extended LinkedIn's CI framework for selective rule execution and multi-repo Helm validation. Adopted across 5,000+ codebases, cut validation from 2.5 min to 14 sec.</p>
-        <div class="project-tech">
-          <span>Go</span><span>CI/CD</span><span>GitHub Actions</span>
-        </div>
-      </div>
-
-      <div class="project-card featured reveal">
-        <div class="project-tag">AI + Infra</div>
-        <h3>Agentic IaC Onboarding</h3>
-        <p>AI agents that turn infrastructure intent into production-ready IaC manifests. Migrated 150+ microservices in 2 months (target was 6), zero outages.</p>
-        <div class="project-tech">
-          <span>Python</span><span>LLM Agents</span><span>GitOps</span><span>Helm</span>
+          <span>Go</span><span>Kubernetes</span><span>Crossplane</span><span>Helm</span>
         </div>
       </div>
 
       <div class="project-card reveal">
         <div class="project-tag">Platform Engineering</div>
-        <h3>Control Plane Integrations</h3>
-        <p>Plugged MySQL, Couchbase, Temporal, TiDB into LinkedIn's self-serve control plane. Saved partners 10+ hours/week of manual provisioning.</p>
+        <h3>Infrastructure Resource Manager</h3>
+        <p>Built the core resource-manager layer at the heart of the infrastructure control plane. It's the foundation now powering 30+ infra platforms (MySQL, Couchbase, Temporal, TiDB, and more) with self-serve provisioning.</p>
         <div class="project-tech">
           <span>Java</span><span>gRPC</span><span>Kafka</span><span>REST</span>
         </div>
@@ -124,18 +95,54 @@
       <div class="project-card reveal">
         <div class="project-tag">Systems Design</div>
         <h3>Quota Auto-Rightsizing</h3>
-        <p>Streaming-based framework for Espresso with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking.</p>
+        <p>A streaming framework that auto-rightsizes capacity for a large distributed document store, with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking. Targets roughly $1.6M/yr of reclaimable capacity.</p>
         <div class="project-tech">
-          <span>Java</span><span>Kafka</span><span>Kusto</span><span>Samza</span>
+          <span>Java</span><span>Kafka</span><span>Samza</span><span>Stream Processing</span>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <div class="project-tag">Graph Systems</div>
-        <h3>Graph Infrastructure</h3>
-        <p>Database-agnostic graph services at Goldman Sachs for fraud detection and knowledge-graph search across large entity graphs.</p>
+        <div class="project-tag">Distributed Systems</div>
+        <h3>Graph, Search &amp; Document Infra</h3>
+        <p>Built three pillars of research infrastructure at Goldman Sachs: a database-agnostic graph database for fraud detection (Neptune, JanusGraph, Gremlin), a graph search service on Elasticsearch (autocomplete, fuzzy, weighted entity lookups), and a document/coverage store on Cassandra that cut response times ~35% over the legacy system.</p>
         <div class="project-tech">
-          <span>Java</span><span>Gremlin</span><span>Neptune</span><span>Elasticsearch</span>
+          <span>Java</span><span>Neptune</span><span>Elasticsearch</span><span>Cassandra</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tag">AI + Infra</div>
+        <h3>Agentic IaC Platform</h3>
+        <p>An agentic layer over the IaC control plane that takes infrastructure from natural-language intent to running, production-ready resources, so users never touch platform-specific rules or hit failing validations. It's pluggable by design: a new platform comes online by authoring a single rules file, which cut agent setup from about 17 days to 1 day.</p>
+        <div class="project-tech">
+          <span>Python</span><span>LLM Agents</span><span>MCP</span><span>Crossplane</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tag">Platform Engineering</div>
+        <h3>Zero-Outage Fleet Migration</h3>
+        <p>Re-architected the manifest model into a multi-file, rule-based structure that closed a file-level ACL security gap and bounded agent context, then migrated 154 services across 90+ teams onto it. Zero outages, one engineer, run end to end by AI agents that raised the PRs, repaired CI, pinged owners, and tracked closure.</p>
+        <div class="project-tech">
+          <span>Go</span><span>Kubernetes</span><span>Helm</span><span>Multi-agent</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tag">Systems Design</div>
+        <h3>Crossplane for Stateful Workloads</h3>
+        <p>Proved Crossplane can manage stateful clusters, not just stateless apps: a ClickHouse control plane covering bootstrap, scale, reshard, red/black failover, backup, and restore via custom CRDs and phase-machine controllers. That de-risks moving teams off bespoke operators and onto a shared platform.</p>
+        <div class="project-tech">
+          <span>Crossplane</span><span>Kubernetes</span><span>ClickHouse</span><span>Go</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tag">AI + Infra</div>
+        <h3>AI Oncall System</h3>
+        <p>A two-tier oncall system: a user-facing assistant that deflects repetitive queries, and an engineer-facing agent that automates the first 20&ndash;30 min of every shift, handling log-anomaly detection, metrics, RCA, and reporting. Backtested on real incidents, it matched human oncall judgment and saved 10&ndash;42 minutes per investigation.</p>
+        <div class="project-tech">
+          <span>Python</span><span>LLM Agents</span><span>MCP</span><span>Observability</span>
         </div>
       </div>
 
@@ -158,19 +165,19 @@
         <h3>Senior Software Engineer</h3>
         <span class="exp-company">LinkedIn</span>
         <span class="exp-date">Sep 2024 &ndash; Present</span>
-        <p>IaC platform owner &mdash; authoring, CI, developer tooling, and agentic onboarding for Core Infrastructure.</p>
+        <p>Own the authoring, CI, and tooling layers of the IaC control plane, plus the agentic-AI layer that now authors, migrates, and operates infrastructure end to end. Technically lead a small engineering pod.</p>
       </div>
       <div class="exp-card reveal">
         <h3>Software Engineer</h3>
         <span class="exp-company">LinkedIn</span>
         <span class="exp-date">May 2022 &ndash; Sep 2024</span>
-        <p>Infrastructure control plane engineering &mdash; built the copilot, quota framework, and integrated 5 platforms.</p>
+        <p>Built the core resource-manager layer of the infrastructure control plane, now powering 30+ infra platforms, plus a streaming quota framework (~$1.6M reclaimable) and an oncall copilot. Migrated the MySQL platform onto a modernized control plane solo.</p>
       </div>
       <div class="exp-card reveal">
         <h3>Software Engineer &rarr; Sr. SWE</h3>
         <span class="exp-company">Goldman Sachs</span>
         <span class="exp-date">May 2019 &ndash; May 2022</span>
-        <p>Distributed graph infrastructure for fraud detection and knowledge-graph search systems.</p>
+        <p>Built distributed graph, search, and document infrastructure for fraud detection and ML-powered research.</p>
       </div>
     </div>
   </div>
@@ -192,16 +199,16 @@
       </div>
       <div class="terminal-body">
         <p><span class="prompt">$</span> whoami</p>
-        <p class="terminal-output">Amandeep Srivastava &mdash; Infrastructure &amp; Platform Engineer</p>
+        <p class="terminal-output">Amandeep Srivastava, Infrastructure &amp; Platform Engineer</p>
         <br>
         <p><span class="prompt">$</span> cat journey.log</p>
-        <p class="terminal-output">4 years at LinkedIn building the systems behind the systems.<br>Started with graph infrastructure for fraud detection at Goldman Sachs.<br>Now designing how 7,000+ engineers provision and operate infra at scale.</p>
+        <p class="terminal-output">4 years at LinkedIn building the control planes behind the systems, now powering 30+ infrastructure platforms.<br>Before that, graph, search, and document infrastructure for fraud detection at Goldman Sachs.<br>Now layering agentic AI on top, so 10,000+ engineers provision and operate infra by intent, not toil.</p>
         <br>
         <p><span class="prompt">$</span> echo $EDUCATION</p>
         <p class="terminal-output">IIT (ISM) Dhanbad &middot; B.Tech CS (Honors) &middot; Class of 2019</p>
         <br>
         <p><span class="prompt">$</span> echo $INTERESTS</p>
-        <p class="terminal-output">distributed-systems, infrastructure-as-code, developer-tooling, AI-for-infra</p>
+        <p class="terminal-output">distributed-systems, control-planes, infrastructure-as-code, agentic-AI, AI-for-infra</p>
         <br>
         <p><span class="prompt">$</span> <span class="cursor">_</span></p>
       </div>
@@ -214,7 +221,7 @@
   <div class="container reveal">
     <span class="section-tag">// contact</span>
     <h2>Let's Connect</h2>
-    <p>Open to conversations about infrastructure, platform engineering, and building at scale.</p>
+    <p>Open to conversations about infrastructure, control-plane engineering, and building at scale.</p>
     <div class="contact-links">
       <a href="mailto:amandeep.srivastava1996@gmail.com" class="btn btn-primary">Email Me</a>
       <a href="https://www.linkedin.com/in/amandeepsrivastava" target="_blank" class="btn btn-ghost">LinkedIn</a>
@@ -265,6 +272,91 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// Hero network: subtle drifting nodes with flowing data pulses, behind the name
+(function () {
+  const canvas = document.getElementById('siteNet');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const COLORS = ['#3b82f6', '#8b5cf6', '#06b6d4'];
+  let w = 0, h = 0, nodes = [], edges = [], raf = 0, resizeTimer = 0;
+
+  function size() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function build() {
+    const n = Math.max(12, Math.min(22, Math.round(w / 70)));
+    nodes = [];
+    for (let i = 0; i < n; i++) {
+      nodes.push({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18,
+        r: 1.6 + Math.random() * 2.2, c: COLORS[i % COLORS.length]
+      });
+    }
+    edges = [];
+    const seen = new Set();
+    for (let i = 0; i < nodes.length; i++) {
+      const near = nodes
+        .map((nd, j) => ({ j, d: (nd.x - nodes[i].x) ** 2 + (nd.y - nodes[i].y) ** 2 }))
+        .filter(o => o.j !== i).sort((a, b) => a.d - b.d);
+      for (let k = 0; k < 2 && k < near.length; k++) {
+        const j = near[k].j, key = i < j ? i + '_' + j : j + '_' + i;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        edges.push({ a: i, b: j, t: Math.random(), speed: 0.0025 + Math.random() * 0.004 });
+      }
+    }
+  }
+
+  function render() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 1;
+    for (const e of edges) {
+      const a = nodes[e.a], b = nodes[e.b];
+      ctx.strokeStyle = 'rgba(124,140,235,0.16)';
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      const px = a.x + (b.x - a.x) * e.t, py = a.y + (b.y - a.y) * e.t;
+      ctx.globalAlpha = 0.95; ctx.fillStyle = a.c;
+      ctx.beginPath(); ctx.arc(px, py, 1.8, 0, 6.283); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+    ctx.shadowBlur = 8;
+    for (const nd of nodes) {
+      ctx.shadowColor = nd.c; ctx.fillStyle = nd.c; ctx.globalAlpha = 0.6;
+      ctx.beginPath(); ctx.arc(nd.x, nd.y, nd.r, 0, 6.283); ctx.fill();
+    }
+    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  }
+
+  function tick() {
+    for (const nd of nodes) {
+      nd.x += nd.vx; nd.y += nd.vy;
+      if (nd.x < 0 || nd.x > w) nd.vx *= -1;
+      if (nd.y < 0 || nd.y > h) nd.vy *= -1;
+    }
+    for (const e of edges) { e.t += e.speed; if (e.t > 1) e.t -= 1; }
+    render();
+    raf = requestAnimationFrame(tick);
+  }
+
+  function start() {
+    size(); build(); render();
+    if (!reduce) { cancelAnimationFrame(raf); tick(); }
+  }
+
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { size(); build(); render(); }, 150);
+  });
+  start();
+})();
 </script>
 
 </body>
