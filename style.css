@@ -104,9 +104,17 @@ nav {
   font-size: 0.85rem;
   margin-left: 32px;
   transition: color 0.2s;
+  background-size: 200% 200%;
 }
 
-.nav-links a:hover { color: var(--text-heading); }
+.nav-links a:hover {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan), var(--accent-blue));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
 
 /* ---- Hero ---- */
 
