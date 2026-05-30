@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog · Amandeep Srivastava</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%230f0f0f'/><text x='44' y='72' font-family='monospace' font-size='52' font-weight='700' fill='white' text-anchor='middle'>AS</text><circle cx='82' cy='68' r='8' fill='%231a56db'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script data-goatcounter="https://srivama15.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      background: rgba(15,15,15,.8);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .logo-dot { color: #1a56db; }
+
+    .back-link {
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s;
+    }
+    .back-link:hover { color: #fff; }
+    .back-link svg { flex-shrink: 0; }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(26,86,219,.14) 0%, transparent 65%);
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 480px;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #1a56db;
+      background: rgba(26,86,219,.1);
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(26,86,219,.2);
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      background: linear-gradient(160deg, #ffffff 40%, #444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sub {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .progress-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .progress-track {
+      width: 160px;
+      height: 2px;
+      background: #1f1f1f;
+      border-radius: 2px;
+    }
+
+    .progress-fill {
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(90deg, #1a56db, #5b8dee);
+      border-radius: 2px;
+    }
+
+    .progress-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #2a2a2a;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">AS<span class="logo-dot">.</span></a>
+  <a href="/" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to portfolio
+  </a>
+</nav>
+
+<main>
+  <div class="glow"></div>
+  <div class="content">
+    <div class="tag">Work in Progress</div>
+    <h1>Writing, thinking<br>out loud.</h1>
+    <p class="sub">Something's brewing here. Check back soon.</p>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill"></div></div>
+      <div class="progress-label">In the works</div>
+    </div>
+  </div>
+</main>
+
+<footer>© 2026 Amandeep Srivastava</footer>
+
+</body>
+</html>
