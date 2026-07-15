@@ -1,11 +1,17 @@
 # Copilot instructions
 
-## Pushing and GitHub operations
+## GitHub operations
 
-See `AGENTS.md` for the required workflow. Push via the repo's own helper
-script, never raw `ssh`, `git push`, or `gh`: the environment blocks the `ssh`
-command, and `gh` is logged in to the wrong account for this repo. The helper
-selects the correct identity and key internally.
+For issues, comments, and other GitHub API operations, use `./gh-personal.sh`
+from the repo root when it is present. If it is absent, fall back to the `gh`
+CLI.
+
+For any remote push, commit first and run `./sync-gh.sh` from the repo root when
+it is present. Add `--force` for a force-with-lease push. If the script is
+absent, fall back to the `gh` CLI.
+
+Both scripts are local, git-ignored helpers. Do not commit, create, or modify
+them.
 
 ## Writing style
 
