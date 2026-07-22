@@ -19,10 +19,12 @@
     <a href="#" class="logo">AS<span class="logo-dot">.</span></a>
     <div class="nav-links">
       <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="/blog">Blog</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="Amandeep_Srivastava_Resume.pdf" download>Resume</a>
     </div>
   </div>
 </nav>
@@ -33,14 +35,18 @@
   <div class="hero-glow"></div>
   <div class="container hero-content">
     <h1>Amandeep <span class="gradient-text">Srivastava</span></h1>
-    <p class="hero-tagline">I build infrastructure platforms that scale, and the agents that run them.</p>
-    <p class="hero-desc">Senior Software Engineer at LinkedIn with 7+ years in infrastructure and distributed systems. I've spent the past 4 years building the control planes and tooling that 10,000+ engineers use to provision and operate 30+ infrastructure platforms, and now I'm layering production agentic AI on top to make them faster, more self-serve, and in some cases fully automated.</p>
+    <p class="hero-tagline">I build infrastructure platforms that scale, and the AI tooling that makes them effortless to use.</p>
+    <p class="hero-desc">Senior Software Engineer at LinkedIn with 7+ years in infrastructure and distributed systems. I've spent the past 4 years building the control planes, resource managers, and tooling that 10,000+ engineers use to provision and operate 30+ infrastructure platforms. On that foundation I layer production AI as a force multiplier, to abstract complexity, simplify flows, and make efficiency gains through autonomous, regulated operations.</p>
     <div class="hero-cta">
+      <a href="Amandeep_Srivastava_Resume.pdf" download class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Resume
+      </a>
       <a href="https://www.linkedin.com/in/amandeep-srivastava" target="_blank" class="btn btn-ghost">
         <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0a66c2" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/><path fill="#fff" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
         LinkedIn
       </a>
-      <a href="mailto:amandeep.srivastava1996@gmail.com" class="btn btn-ghost">
+      <a href="mailto:aman.iitism19@gmail.com" class="btn btn-ghost">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Email
       </a>
@@ -66,11 +72,11 @@
       </div>
       <div class="metric-card">
         <span class="counter" data-target="250" data-suffix="+">0</span>
-        <span class="metric-label">Stateless services onboarded to IaC via agentic AI</span>
+        <span class="metric-label">Pre-IaC services migrated onto IaC by an autonomous agent</span>
       </div>
       <div class="metric-card">
         <span class="counter" data-target="90" data-suffix="%">0</span>
-        <span class="metric-label">Reduction in infra CI validation time</span>
+        <span class="metric-label">Fewer apply-time failures from shift-left validation</span>
       </div>
     </div>
   </div>
@@ -86,25 +92,70 @@
     <div class="bento-grid">
 
       <div class="project-card featured reveal">
-        <div class="project-tag">IaC Platform</div>
+        <div class="project-tags"><span class="project-tag">IaC Platform</span><span class="project-company li">LinkedIn</span></div>
         <h3>IaC Control Plane &amp; CLI</h3>
-        <p>The control plane and unified CLI behind a company-wide effort to move all infrastructure provisioning onto a single IaC stack. I architected it to handle authoring, validation, publishing, and full lifecycle management across many platforms, and 10,000+ engineers use it daily. I drove it to production-readiness and cut CLI cold-start from 30s to ~200ms.</p>
+        <p>LinkedIn's greenfield Infrastructure-as-Code stack: the authoring, validation, and publishing layers plus a unified CLI, now used by 10,000+ engineers and agentic workflows to manage infrastructure. Shift-left validation catches misconfigurations at PR time, cutting apply-time failures ~90% across 5,000+ services (projected ~$5M/yr savings).</p>
         <div class="project-tech">
           <span>Go</span><span>Kubernetes</span><span>Crossplane</span><span>Helm</span>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <div class="project-tag">Platform Engineering</div>
-        <h3>Infrastructure Resource Manager</h3>
-        <p>Built the core resource-manager layer at the heart of the infrastructure control plane. It's the foundation now powering 30+ infra platforms (MySQL, Couchbase, Temporal, TiDB, and more) with self-serve provisioning.</p>
+        <div class="project-tags"><span class="project-tag">AI + Infra</span><span class="project-company li">LinkedIn</span></div>
+        <h3>LinkedIn's First Infra-Management Agent</h3>
+        <p>Led a 4-engineer team to build the first agentic layer that turns natural-language intent into validated, production-ready infrastructure, driven from the tools engineers already use (VS Code, Cursor, IntelliJ, Claude Code, GitHub Copilot CLI). It's pluggable by design: a new platform integrates by authoring one rules file instead of building its own agent (~17 days &rarr; ~1 day of dev).</p>
         <div class="project-tech">
-          <span>Java</span><span>gRPC</span><span>Kafka</span><span>REST</span>
+          <span>Python</span><span>Claude SDK</span><span>Copilot SDK</span><span>MCP</span>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <div class="project-tag">Systems Design</div>
+        <div class="project-tags"><span class="project-tag">Distributed Systems</span><span class="project-company li">LinkedIn</span></div>
+        <h3>Resource Insights Service</h3>
+        <p>A high-throughput (~30M QPS) service that tracks live utilization for a large distributed NoSQL document store. It became a core dependency of five workflows: database provisioning (cluster capacity checks), quota changes, deletion (live-traffic safety checks), usage-based quota recommendations, and infra-cost reporting.</p>
+        <div class="project-tech">
+          <span>Java</span><span>gRPC</span><span>NoSQL</span><span>High-QPS</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tags"><span class="project-tag">Platform Engineering</span><span class="project-company li">LinkedIn</span></div>
+        <h3>Split-Manifest Architecture</h3>
+        <p>Re-architected the manifest model into a backward-compatible, multi-file structure that lets a single manifest be split across repositories on demand, enabling file-level resource access control and bounding the context automation sees. Rolled it out fleet-wide to 154 services across 90+ teams with zero outages, executed by AI agents that raised the PRs, repaired CI, pinged owners, and tracked closure.</p>
+        <div class="project-tech">
+          <span>Go</span><span>Kubernetes</span><span>Helm</span><span>Multi-agent</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tags"><span class="project-tag">Platform Engineering</span><span class="project-company li">LinkedIn</span></div>
+        <h3>Infrastructure Resource Manager</h3>
+        <p>The resource-manager core at the heart of a new, centrally managed control plane, designed for pluggable platform onboarding. I brought the MySQL platform on as the first tenant, delivering self-serve provisioning with 70% fewer errors and 53% lower API latency; the pattern is now reused across 30+ platforms (Couchbase, Temporal, TiDB, and more).</p>
+        <div class="project-tech">
+          <span>Java</span><span>gRPC</span><span>Kafka</span><span>MySQL</span><span>REST</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tags"><span class="project-tag">Platform Engineering</span><span class="project-company li">LinkedIn</span></div>
+        <h3>Long Running Operations Engine</h3>
+        <p>The provisioning engine beneath the control plane, on Kubernetes and Crossplane, reconciling ~8M resources across 10+ platforms. I model complex, multi-step operations as resumable Kubernetes-object state machines; automating these previously manual flows cut provisioning time ~73%, and the engine is now extending into stateful cluster management.</p>
+        <div class="project-tech">
+          <span>Go</span><span>Kubernetes</span><span>Crossplane</span><span>CRDs</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tags"><span class="project-tag">AI + Infra</span><span class="project-company li">LinkedIn</span></div>
+        <h3>Multi-Layered AI for Infra Ops</h3>
+        <p>AI woven through the platform's operations at several layers: an automated PR-review agent (on the GitHub Copilot SDK) that reviews every infrastructure change, a developer on-call agent that triages across design docs, wikis, Slack, tickets, and code, and user-facing assistant layers in the product UI and Slack. Backtested on real incidents, the on-call agent matched human judgment and saved 10&ndash;42 minutes per investigation.</p>
+        <div class="project-tech">
+          <span>Python</span><span>Copilot SDK</span><span>MCP</span><span>Observability</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tags"><span class="project-tag">Systems Design</span><span class="project-company li">LinkedIn</span></div>
         <h3>Quota Auto-Rightsizing</h3>
         <p>A streaming framework that auto-rightsizes capacity for a large distributed document store, with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking. Targets roughly $1.6M/yr of reclaimable capacity.</p>
         <div class="project-tech">
@@ -113,50 +164,65 @@
       </div>
 
       <div class="project-card reveal">
-        <div class="project-tag">Distributed Systems</div>
-        <h3>Graph, Search &amp; Document Infra</h3>
-        <p>Built three pillars of research infrastructure at Goldman Sachs: a database-agnostic graph database for fraud detection (Neptune, JanusGraph, Gremlin), a graph search service on Elasticsearch (autocomplete, fuzzy, weighted entity lookups), and a document/coverage store on Cassandra that cut response times ~35% over the legacy system.</p>
-        <div class="project-tech">
-          <span>Java</span><span>Neptune</span><span>Elasticsearch</span><span>Cassandra</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tag">AI + Infra</div>
-        <h3>Agentic IaC Platform</h3>
-        <p>An agentic layer over the IaC control plane that takes infrastructure from natural-language intent to running, production-ready resources, so users never touch platform-specific rules or hit failing validations. It's pluggable by design: a new platform comes online by authoring a single rules file, which cut agent setup from about 17 days to 1 day.</p>
-        <div class="project-tech">
-          <span>Python</span><span>LLM Agents</span><span>MCP</span><span>Crossplane</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tag">Platform Engineering</div>
-        <h3>Zero-Outage Fleet Migration</h3>
-        <p>Re-architected the manifest model into a multi-file, rule-based structure that closed a file-level ACL security gap and bounded agent context, then migrated 154 services across 90+ teams onto it. Zero outages, one engineer, run end to end by AI agents that raised the PRs, repaired CI, pinged owners, and tracked closure.</p>
-        <div class="project-tech">
-          <span>Go</span><span>Kubernetes</span><span>Helm</span><span>Multi-agent</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tag">Systems Design</div>
-        <h3>Crossplane for Stateful Workloads</h3>
-        <p>Proved Crossplane can manage stateful clusters, not just stateless apps: a ClickHouse control plane covering bootstrap, scale, reshard, red/black failover, backup, and restore via custom CRDs and phase-machine controllers. That de-risks moving teams off bespoke operators and onto a shared platform.</p>
+        <div class="project-tags"><span class="project-tag">Systems Design</span><span class="project-company li">LinkedIn</span></div>
+        <h3>Stateful Clusters on Crossplane <span style="opacity:0.6;font-weight:500">· WIP</span></h3>
+        <p>Extending the provisioning engine beyond logical resources into stateful cluster management. A ClickHouse proof-of-concept models the full lifecycle, bootstrap, scale, reshard, red/black failover, backup, and restore, as Kubernetes-object state machines, so teams can move off bespoke operators onto a shared platform.</p>
         <div class="project-tech">
           <span>Crossplane</span><span>Kubernetes</span><span>ClickHouse</span><span>Go</span>
         </div>
       </div>
 
       <div class="project-card reveal">
-        <div class="project-tag">AI + Infra</div>
-        <h3>AI Oncall System</h3>
-        <p>A two-tier oncall system: a user-facing assistant that deflects repetitive queries, and an engineer-facing agent that automates the first 20&ndash;30 min of every shift, handling log-anomaly detection, metrics, RCA, and reporting. Backtested on real incidents, it matched human oncall judgment and saved 10&ndash;42 minutes per investigation.</p>
+        <div class="project-tags"><span class="project-tag">Distributed Systems</span><span class="project-company gs">Goldman Sachs</span></div>
+        <h3>Graph, Search &amp; Document Infra</h3>
+        <p>Built three pillars of research infrastructure at Goldman Sachs: a database-agnostic graph database for fraud detection (Neptune, JanusGraph, Gremlin), a graph search service on Elasticsearch (autocomplete, fuzzy, weighted entity lookups), and a document/coverage store on Cassandra that cut response times ~35% over the legacy system.</p>
         <div class="project-tech">
-          <span>Python</span><span>LLM Agents</span><span>MCP</span><span>Observability</span>
+          <span>Java</span><span>Gremlin</span><span>JanusGraph</span><span>Neptune</span><span>Elasticsearch</span><span>Cassandra</span>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ======== Skills ======== -->
+<section id="skills" class="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// skills</span>
+      <h2>What I Work With</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group wide reveal">
+        <h4>Distributed Systems &amp; Infra</h4>
+        <div class="skill-tags">
+          <span>Kubernetes</span><span>Crossplane</span><span>Helm</span><span>gRPC</span><span>REST</span><span>CRDs / Operators</span><span>Control Planes</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span>Go</span><span>Java</span><span>Python</span><span>C++</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Data &amp; Streaming</h4>
+        <div class="skill-tags">
+          <span>Kafka</span><span>Samza</span><span>Cassandra</span><span>Elasticsearch</span><span>MySQL</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Graph &amp; Frameworks</h4>
+        <div class="skill-tags">
+          <span>Gremlin</span><span>SPARQL</span><span>JanusGraph</span><span>AWS Neptune</span><span>Spring Boot</span><span>Vert.x</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>AI Integration</h4>
+        <div class="skill-tags">
+          <span>Claude SDK</span><span>Copilot SDK</span><span>MCP</span><span>Skills</span><span>Agentic Workflows</span><span>Cursor</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -168,23 +234,26 @@
       <span class="section-tag">// experience</span>
       <h2>Where I've Worked</h2>
     </div>
-    <div class="exp-grid">
-      <div class="exp-card reveal">
-        <div class="exp-status">
-          <span class="status-dot"></span> Current
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <span class="timeline-node current"></span>
+        <div class="timeline-role">
+          <h3>Senior Software Engineer</h3>
+          <span class="timeline-current">Current</span>
         </div>
-        <h3>Senior Software Engineer</h3>
         <span class="exp-company">LinkedIn</span>
         <span class="exp-date">Sep 2024 &ndash; Present</span>
-        <p>Own the authoring, CI, and tooling layers of the IaC control plane, plus the agentic-AI layer that now authors, migrates, and operates infrastructure end to end. Technically lead a small engineering pod.</p>
+        <p>Own the authoring, validation, and publishing layers of the IaC control plane and its unified CLI, plus the AI layer that helps engineers author, migrate, and operate infrastructure.</p>
       </div>
-      <div class="exp-card reveal">
+      <div class="timeline-item">
+        <span class="timeline-node"></span>
         <h3>Software Engineer</h3>
         <span class="exp-company">LinkedIn</span>
         <span class="exp-date">May 2022 &ndash; Sep 2024</span>
-        <p>Built the core resource-manager layer of the infrastructure control plane, now powering 30+ infra platforms, plus a streaming quota framework (~$1.6M reclaimable) and an oncall copilot. Migrated the MySQL platform onto a modernized control plane solo.</p>
+        <p>Built the resource-manager core of a new infrastructure control plane, now powering 30+ platforms, and a high-throughput (~30M QPS) resource-insights service that five provisioning and quota workflows depend on. Brought the MySQL platform on as the first tenant: 70% fewer errors, 53% lower API latency.</p>
       </div>
-      <div class="exp-card reveal">
+      <div class="timeline-item">
+        <span class="timeline-node"></span>
         <h3>Software Engineer &rarr; Sr. SWE</h3>
         <span class="exp-company">Goldman Sachs</span>
         <span class="exp-date">May 2019 &ndash; May 2022</span>
@@ -213,7 +282,7 @@
         <p class="terminal-output">Amandeep Srivastava, Infrastructure &amp; Platform Engineer</p>
         <br>
         <p><span class="prompt">$</span> cat journey.log</p>
-        <p class="terminal-output">4 years at LinkedIn building the control planes behind the systems, now powering 30+ infrastructure platforms.<br>Before that, graph, search, and document infrastructure for fraud detection at Goldman Sachs.<br>Now layering agentic AI on top, so 10,000+ engineers provision and operate infra by intent, not toil.</p>
+        <p class="terminal-output">4 years at LinkedIn building the control planes, resource managers, and tooling behind 30+ infrastructure platforms.<br>Before that, graph, search, and document infrastructure for fraud detection at Goldman Sachs.<br>Now layering AI on that foundation, so engineers, on-call, and platform partners work by intent instead of toil.</p>
         <br>
         <p><span class="prompt">$</span> echo $EDUCATION</p>
         <p class="terminal-output">IIT (ISM) Dhanbad &middot; B.Tech CS (Honors) &middot; Class of 2019</p>
@@ -238,7 +307,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0a66c2" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/><path fill="#fff" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
         LinkedIn
       </a>
-      <a href="mailto:amandeep.srivastava1996@gmail.com" class="btn btn-ghost">
+      <a href="mailto:aman.iitism19@gmail.com" class="btn btn-ghost">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Email Me
       </a>
