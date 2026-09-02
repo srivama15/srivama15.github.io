@@ -75,7 +75,7 @@
         <span class="metric-label">Pre-IaC services migrated onto IaC by an autonomous agent</span>
       </div>
       <div class="metric-card">
-        <span class="counter" data-target="90" data-suffix="%">0</span>
+        <span class="counter" data-target="98" data-suffix="%">0</span>
         <span class="metric-label">Fewer apply-time failures from shift-left validation</span>
       </div>
     </div>
@@ -94,7 +94,7 @@
       <div class="project-card featured reveal">
         <div class="project-tags"><span class="project-tag">IaC Platform</span><span class="project-company li">LinkedIn</span></div>
         <h3>IaC Control Plane &amp; CLI</h3>
-        <p>LinkedIn's greenfield Infrastructure-as-Code stack: the authoring, validation, and publishing layers plus a unified CLI, now used by 10,000+ engineers and agentic workflows to manage infrastructure. Shift-left validation catches misconfigurations at PR time, cutting apply-time failures ~90% across 5,000+ services (projected ~$5M/yr savings).</p>
+        <p>LinkedIn's greenfield Infrastructure-as-Code stack: the authoring, validation, and publishing layers plus a unified CLI, now used by 10,000+ engineers and agentic workflows to manage infrastructure. Shift-left validation catches misconfigurations in CI rather than at apply time, cutting apply-time failures 98% across 5,000+ services (projected ~$5M/yr savings); the residual 2% are cases CI cannot validate. Separately, multithreading and rule-engine tuning cut validation runtime ~90% (2.5 min &rarr; ~14s).</p>
         <div class="project-tech">
           <span>Go</span><span>Kubernetes</span><span>Crossplane</span><span>Helm</span>
         </div>
@@ -103,7 +103,7 @@
       <div class="project-card reveal">
         <div class="project-tags"><span class="project-tag">AI + Infra</span><span class="project-company li">LinkedIn</span></div>
         <h3>LinkedIn's First Infra-Management Agent</h3>
-        <p>Led a 4-engineer team to build the first agentic layer that turns natural-language intent into validated, production-ready infrastructure, driven from the tools engineers already use (VS Code, Cursor, IntelliJ, Claude Code, GitHub Copilot CLI). It's pluggable by design: a new platform integrates by authoring one rules file instead of building its own agent (~17 days &rarr; ~1 day of dev).</p>
+        <p>Led a 5-engineer team to build the first agentic layer that turns natural-language intent into validated, production-ready infrastructure, driven from the tools engineers already use (VS Code, Cursor, IntelliJ, Claude Code, GitHub Copilot CLI). It's pluggable by design: a new platform integrates by authoring one rules file instead of building its own agent (~17 days &rarr; ~1 day of dev).</p>
         <div class="project-tech">
           <span>Python</span><span>Claude SDK</span><span>Copilot SDK</span><span>MCP</span>
         </div>
@@ -148,7 +148,7 @@
       <div class="project-card reveal">
         <div class="project-tags"><span class="project-tag">AI + Infra</span><span class="project-company li">LinkedIn</span></div>
         <h3>Multi-Layered AI for Infra Ops</h3>
-        <p>AI woven through the platform's operations at several layers: an automated PR-review agent (on the GitHub Copilot SDK) that reviews every infrastructure change, a developer on-call agent that triages across design docs, wikis, Slack, tickets, and code, and user-facing assistant layers in the product UI and Slack. Backtested on real incidents, the on-call agent matched human judgment and saved 10&ndash;42 minutes per investigation.</p>
+        <p>AI woven through the platform's operations at several layers: an automated PR-review agent (on the GitHub Copilot SDK) that reviews 100% of migration PRs, a developer on-call agent that triages across design docs, wikis, Slack, tickets, and code, and user-facing assistant layers in the product UI and Slack. Backtested on real incidents, the on-call agent matched human judgment and saved 10&ndash;42 minutes per investigation.</p>
         <div class="project-tech">
           <span>Python</span><span>Copilot SDK</span><span>MCP</span><span>Observability</span>
         </div>
@@ -175,9 +175,9 @@
       <div class="project-card reveal">
         <div class="project-tags"><span class="project-tag">Distributed Systems</span><span class="project-company gs">Goldman Sachs</span></div>
         <h3>Graph, Search &amp; Document Infra</h3>
-        <p>Built three pillars of research infrastructure at Goldman Sachs: a database-agnostic graph database for fraud detection (Neptune, JanusGraph, Gremlin), a graph search service on Elasticsearch (autocomplete, fuzzy, weighted entity lookups), and a document/coverage store on Cassandra that cut response times ~35% over the legacy system.</p>
+        <p>Built three pillars of research infrastructure at Goldman Sachs: a database-agnostic graph database for fraud detection (Neptune, JanusGraph backed by a Cassandra store, Gremlin), a graph search service on Elasticsearch (autocomplete, fuzzy, weighted entity lookups), and a document search store on Vespa that replaced a legacy Attivio (Lucene-based) stack and cut response times ~35%.</p>
         <div class="project-tech">
-          <span>Java</span><span>Gremlin</span><span>JanusGraph</span><span>Neptune</span><span>Elasticsearch</span><span>Cassandra</span>
+          <span>Java</span><span>Gremlin</span><span>JanusGraph</span><span>Neptune</span><span>Elasticsearch</span><span>Cassandra</span><span>Vespa</span>
         </div>
       </div>
 
@@ -208,7 +208,7 @@
       <div class="skill-group reveal">
         <h4>Data &amp; Streaming</h4>
         <div class="skill-tags">
-          <span>Kafka</span><span>Samza</span><span>Cassandra</span><span>Elasticsearch</span><span>MySQL</span>
+          <span>Kafka</span><span>Samza</span><span>Cassandra</span><span>Vespa</span><span>Elasticsearch</span><span>MySQL</span>
         </div>
       </div>
       <div class="skill-group reveal">
