@@ -1,452 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amandeep Srivastava · Infrastructure & Platform Engineer</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%230f0f0f'/><text x='44' y='72' font-family='monospace' font-size='52' font-weight='700' fill='white' text-anchor='middle'>AS</text><circle cx='82' cy='68' r='8' fill='%231a56db'/></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script data-goatcounter="https://srivama15.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amandeep Srivastava · Infrastructure & Platform Engineer</title>
+<meta name="description" content="Amandeep Srivastava builds infrastructure platforms that scale, and the AI tooling that makes them effortless to use.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%230f0f0f'/><text x='44' y='72' font-family='monospace' font-size='52' font-weight='700' fill='white' text-anchor='middle'>AS</text><circle cx='82' cy='68' r='8' fill='%231a56db'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<script data-goatcounter="https://srivama15.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+window.SITE = {
+  name: 'Amandeep Srivastava',
+  short: 'Aman',
+  role: 'Senior Software Engineer, LinkedIn',
+  tagline: 'I build infrastructure platforms that scale, and the AI tooling that makes them effortless to use.',
+  summary: "Senior Software Engineer at LinkedIn with 7+ years in infrastructure and distributed systems. I architected LinkedIn's Infrastructure-as-Code authoring platform for a control plane used by 10,000+ engineers to manage ~8M resources across 10+ platforms. I now lead its authoring, CI, and AI pillars, building developer tooling and autonomous workflows that make infrastructure safer and easier to operate.",
+  links: {
+    resume: 'Amandeep_Srivastava_Resume.pdf',
+    linkedin: 'https://www.linkedin.com/in/amandeep-srivastava',
+    email: 'mailto:aman.iitism19@gmail.com',
+    github: 'https://github.com/srivama15'
+  },
+  metrics: [
+    { value: 10000, suffix: '+', label: 'Engineers on the platforms and tooling I build' },
+    { value: 30, suffix: '+', label: 'Platforms powered by the resource manager I built' },
+    { value: 250, suffix: '+', label: 'Pre-IaC services migrated onto IaC by an autonomous agent' },
+    { value: 98, suffix: '%', label: 'Fewer apply-time failures from shift-left validation' }
+  ],
+  projects: [
+    {
+      id: 'iac', title: 'IaC Control Plane & CLI', area: 'IaC Platform', company: 'LinkedIn', kind: 'platform', featured: true,
+      stat: '98% fewer apply-time failures',
+      body: "LinkedIn's greenfield Infrastructure-as-Code stack: the authoring, validation, and publishing layers plus a unified CLI, now used by 10,000+ engineers and agentic workflows to manage infrastructure. Shift-left validation catches misconfigurations in CI rather than at apply time, cutting apply-time failures 98% across 5,000+ services (projected ~$5M/yr savings); the residual 2% are cases CI cannot validate. Separately, multithreading and rule-engine tuning cut validation runtime ~90% (2.5 min to ~14s).",
+      tech: ['Go', 'Kubernetes', 'Crossplane', 'Helm']
+    },
+    {
+      id: 'agent', title: "LinkedIn's First Infra-Management Agent", area: 'AI + Infra', company: 'LinkedIn', kind: 'ai',
+      stat: '~17 days to ~1 day to onboard a platform',
+      body: "Led a 5-engineer team to build the first agentic layer that turns natural-language intent into validated, production-ready infrastructure, driven from the tools engineers already use (VS Code, Cursor, IntelliJ, Claude Code, GitHub Copilot CLI). It's pluggable by design: a new platform integrates by authoring one rules file instead of building its own agent (~17 days to ~1 day of dev).",
+      tech: ['Python', 'Claude SDK', 'Copilot SDK', 'MCP']
+    },
+    {
+      id: 'insights', title: 'Resource Insights Service', area: 'Distributed Systems', company: 'LinkedIn', kind: 'systems',
+      stat: '~30M QPS',
+      body: 'A high-throughput (~30M QPS) service that tracks live utilization for a large distributed NoSQL document store. It became a core dependency of five workflows: database provisioning (cluster capacity checks), quota changes, deletion (live-traffic safety checks), usage-based quota recommendations, and infra-cost reporting.',
+      tech: ['Java', 'gRPC', 'NoSQL', 'High-QPS']
+    },
+    {
+      id: 'split', title: 'Split-Manifest Architecture', area: 'Platform Engineering', company: 'LinkedIn', kind: 'platform',
+      stat: '154 services, 90+ teams, zero outages',
+      body: 'Re-architected the manifest model into a backward-compatible, multi-file structure that lets a single manifest be split across repositories on demand, enabling file-level resource access control and bounding the context automation sees. Rolled it out fleet-wide to 154 services across 90+ teams with zero outages, executed by AI agents that raised the PRs, repaired CI, pinged owners, and tracked closure.',
+      tech: ['Go', 'Kubernetes', 'Helm', 'Multi-agent']
+    },
+    {
+      id: 'rm', title: 'Infrastructure Resource Manager', area: 'Platform Engineering', company: 'LinkedIn', kind: 'platform',
+      stat: 'Reused across 30+ platforms',
+      body: 'The resource-manager core at the heart of a new, centrally managed control plane, designed for pluggable platform onboarding. I brought the MySQL platform on as the first tenant, delivering self-serve provisioning with 70% fewer errors and 53% lower API latency; the pattern is now reused across 30+ platforms (Couchbase, Temporal, TiDB, and more).',
+      tech: ['Java', 'gRPC', 'Kafka', 'MySQL', 'REST']
+    },
+    {
+      id: 'lro', title: 'Long Running Operations Engine', area: 'Platform Engineering', company: 'LinkedIn', kind: 'platform',
+      stat: '~8M resources reconciled',
+      body: 'The provisioning engine beneath the control plane, on Kubernetes and Crossplane, reconciling ~8M resources across 10+ platforms. I model complex, multi-step operations as resumable Kubernetes-object state machines; automating these previously manual flows cut provisioning time ~73%, and the engine is now extending into stateful cluster management.',
+      tech: ['Go', 'Kubernetes', 'Crossplane', 'CRDs']
+    },
+    {
+      id: 'aiops', title: 'Multi-Layered AI for Infra Ops', area: 'AI + Infra', company: 'LinkedIn', kind: 'ai',
+      stat: '10 to 42 minutes saved per investigation',
+      body: "AI woven through the platform's operations at several layers: an automated PR-review agent (on the GitHub Copilot SDK) that reviews 100% of migration PRs, a developer on-call agent that triages across design docs, wikis, Slack, tickets, and code, and user-facing assistant layers in the product UI and Slack. Backtested on real incidents, the on-call agent matched human judgment and saved 10 to 42 minutes per investigation.",
+      tech: ['Python', 'Copilot SDK', 'MCP', 'Observability']
+    },
+    {
+      id: 'quota', title: 'Quota Auto-Rightsizing', area: 'Systems Design', company: 'LinkedIn', kind: 'systems',
+      stat: '~$1.6M/yr reclaimable capacity',
+      body: 'A streaming framework that auto-rightsizes capacity for a large distributed document store, with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking. Targets roughly $1.6M/yr of reclaimable capacity.',
+      tech: ['Java', 'Kafka', 'Samza', 'Stream Processing']
+    },
+    {
+      id: 'stateful', title: 'Stateful Clusters on Crossplane', area: 'Systems Design', company: 'LinkedIn', kind: 'systems', wip: true,
+      stat: 'In progress',
+      body: 'Extending the provisioning engine beyond logical resources into stateful cluster management. A ClickHouse proof-of-concept models the full lifecycle, bootstrap, scale, reshard, red/black failover, backup, and restore, as Kubernetes-object state machines, so teams can move off bespoke operators onto a shared platform.',
+      tech: ['Crossplane', 'Kubernetes', 'ClickHouse', 'Go']
+    },
+    {
+      id: 'gs', title: 'Graph, Search & Document Infra', area: 'Distributed Systems', company: 'Goldman Sachs', kind: 'systems',
+      stat: '~35% faster document search',
+      body: 'Built three pillars of research infrastructure at Goldman Sachs: a database-agnostic graph database for fraud detection (Neptune, JanusGraph backed by a Cassandra store, Gremlin), a graph search service on Elasticsearch (autocomplete, fuzzy, weighted entity lookups), and a document search store on Vespa that replaced a legacy Attivio (Lucene-based) stack and cut response times ~35%.',
+      tech: ['Java', 'Gremlin', 'JanusGraph', 'Neptune', 'Elasticsearch', 'Cassandra', 'Vespa']
+    }
+  ],
+  skills: [
+    { group: 'Distributed systems and infra', items: ['Kubernetes', 'Crossplane', 'Helm', 'gRPC', 'REST', 'CRDs / Operators', 'Control Planes'] },
+    { group: 'Languages', items: ['Go', 'Java', 'Python', 'C++'] },
+    { group: 'Data and streaming', items: ['Kafka', 'Samza', 'Cassandra', 'Vespa', 'Elasticsearch', 'MySQL'] },
+    { group: 'Graph and frameworks', items: ['Gremlin', 'SPARQL', 'JanusGraph', 'AWS Neptune', 'Spring Boot', 'Vert.x'] },
+    { group: 'AI integration', items: ['Claude SDK', 'Copilot SDK', 'MCP', 'Skills', 'Agentic Workflows', 'Cursor'] }
+  ],
+  experience: [
+    { role: 'Software Engineer to Sr. SWE', company: 'Goldman Sachs', start: 'May 2019', end: 'May 2022', year: 2019,
+      body: 'Built distributed graph, search, and document infrastructure for fraud detection and ML-powered research.' },
+    { role: 'Software Engineer', company: 'LinkedIn', start: 'May 2022', end: 'Sep 2024', year: 2022,
+      body: 'Built the resource-manager core of a new infrastructure control plane, now powering 30+ platforms, and a high-throughput (~30M QPS) resource-insights service that five provisioning and quota workflows depend on. Brought the MySQL platform on as the first tenant: 70% fewer errors, 53% lower API latency.' },
+    { role: 'Senior Software Engineer', company: 'LinkedIn', start: 'Sep 2024', end: 'Present', year: 2024, current: true,
+      body: 'Own the authoring, validation, and publishing layers of the IaC control plane and its unified CLI, plus the AI layer that helps engineers author, migrate, and operate infrastructure.' }
+  ],
+  about: {
+    journey: '4 years at LinkedIn building the control planes, resource managers, and tooling behind 30+ infrastructure platforms. Before that, graph, search, and document infrastructure for fraud detection at Goldman Sachs. Now layering AI on that foundation, so engineers, on-call, and platform partners work by intent instead of toil.',
+    education: 'IIT (ISM) Dhanbad, B.Tech Computer Science (Honors), class of 2019',
+    interests: ['Distributed systems', 'Control planes', 'Infrastructure as code', 'Agentic AI', 'AI for infra']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<style>
+:root {
+  --abyss: #09090b;
+  --deep: #111113;
+  --mist: #d4d4d8;
+  --heading: #fafafa;
+  --dim: #a1a1aa;
+  --muted: #71717a;
+  --glass: #3b82f6;
+  --cyan: #06b6d4;
+  --amber: #d4a017;
+  --ai: #8b5cf6;
+  --gutter: clamp(22px, 5vw, 80px);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--abyss); }
+body { font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-variation-settings: 'opsz' 14; color: var(--mist); background: var(--abyss); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--glass); outline-offset: 4px; border-radius: 6px; }
+::selection { background: var(--glass); color: #fff; }
+.wrap { padding: 0 var(--gutter); max-width: 1520px; margin: 0 auto; }
+.display { font-variation-settings: 'opsz' 96; font-weight: 400; color: var(--heading); letter-spacing: -.035em; line-height: .98; }
+
+/* Nav */
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 30; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--gutter); transition: background .3s; }
+.nav.solid { background: rgba(9,9,11,.8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.mark { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; text-decoration: none; font-size: 18px; letter-spacing: -.02em; color: var(--heading); }
+.mark span { color: var(--glass); }
+.nav ul { display: flex; gap: 28px; list-style: none; font-size: 15px; }
+.nav ul a { text-decoration: none; color: var(--dim); transition: color .2s; }
+.nav ul a:hover { color: var(--mist); }
+
+/* Hero */
+.hero { position: relative; height: 100svh; min-height: 720px; overflow: hidden; }
+#field { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-copy { position: relative; z-index: 2; padding-top: clamp(120px, 20vh, 210px); max-width: 44%; pointer-events: none; padding-right: 0; margin: 0; }
+.hero-copy a, .hero-copy button { pointer-events: auto; }
+.hero h1 { font-size: clamp(48px, 6.6vw, 112px); font-weight: 450; }
+.hero h1 .w { display: inline-block; opacity: 0; filter: blur(14px); transform: translateY(12px); }
+.hero .tagline { margin-top: 26px; font-size: clamp(19px, 1.7vw, 24px); line-height: 1.4; max-width: 30ch; text-wrap: pretty; color: var(--mist); opacity: 0; }
+.hero .role { color: var(--dim); font-size: 15px; margin-top: 12px; opacity: 0; }
+.cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; opacity: 0; }
+.btn { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; border-radius: 12px; font: 500 15px 'Bricolage Grotesque', sans-serif; text-decoration: none; color: var(--mist); background: rgba(212,212,216,.06); border: 1px solid rgba(212,212,216,.16); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+.btn:hover { background: rgba(212,212,216,.12); border-color: rgba(212,212,216,.35); }
+.btn.primary { background: var(--glass); color: #fff; border-color: var(--glass); font-weight: 600; }
+.btn.primary:hover { background: #2563eb; border-color: #2563eb; box-shadow: 0 0 20px rgba(59,130,246,.3); }
+
+/* Intent bar: the AI layer */
+.intent { position: absolute; z-index: 3; left: 48%; right: var(--gutter); bottom: 34px; opacity: 0; }
+.prompt { display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 8px 0 18px; border-radius: 16px; background: rgba(17,17,19,.84); border: 1px solid rgba(139,92,246,.35); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 20px 50px -30px rgba(139,92,246,.5); transition: border-color .3s, box-shadow .3s; }
+.prompt.busy { border-color: rgba(139,92,246,.75); box-shadow: 0 0 0 4px rgba(139,92,246,.1), 0 20px 50px -30px rgba(139,92,246,.75); }
+.prompt .spark { width: 10px; height: 10px; border-radius: 50%; background: var(--ai); box-shadow: 0 0 12px var(--ai); flex: none; }
+.prompt .typed { flex: 1; font-size: 16px; color: var(--mist); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.prompt .typed::after { content: ''; display: inline-block; width: 2px; height: 1.1em; background: var(--ai); margin-left: 2px; vertical-align: -3px; animation: caret 1s steps(2) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+.prompt .run { height: 40px; padding: 0 16px; border-radius: 10px; border: 0; background: var(--ai); color: #fff; font: 600 14px 'Bricolage Grotesque', sans-serif; cursor: pointer; }
+.status { margin-bottom: 12px; height: 22px; padding-left: 4px; font-size: 14px; color: var(--dim); display: flex; gap: 18px; white-space: nowrap; overflow: hidden; }
+.status span { transition: color .3s, opacity .3s; opacity: .35; }
+.status span.on { opacity: 1; color: var(--mist); }
+.status span.done { opacity: 1; color: var(--cyan); }
+.chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { font: 14px 'Bricolage Grotesque', sans-serif; color: var(--dim); background: transparent; border: 1px solid rgba(212,212,216,.14); border-radius: 999px; padding: 6px 14px; cursor: pointer; transition: color .2s, border-color .2s, background .2s; }
+.chips button:hover { color: var(--mist); border-color: rgba(212,212,216,.35); }
+.chips button[aria-pressed="true"] { color: var(--ai); border-color: rgba(139,92,246,.5); background: rgba(139,92,246,.1); }
+
+/* Sections */
+.sec { padding-top: clamp(110px, 14vw, 190px); position: relative; }
+.sec h2 { font-size: clamp(40px, 5.4vw, 88px); max-width: 17ch; text-wrap: balance; }
+.lede { margin-top: 20px; color: var(--dim); font-size: 18px; max-width: 56ch; }
+
+.metrics { margin-top: 70px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.metric { padding: 22px 28px 0 0; border-top: 1px solid rgba(212,212,216,.16); position: relative; }
+.metric::before { content: ''; position: absolute; top: -1px; left: 0; height: 1px; width: 0; background: var(--glass); transition: width 1.4s cubic-bezier(.16,1,.3,1); }
+.metric.in::before { width: 100%; }
+.metric b { display: block; font-variation-settings: 'opsz' 96; font-weight: 300; font-size: clamp(48px, 5.6vw, 92px); line-height: 1; letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+.metric p { margin-top: 12px; color: var(--dim); font-size: 15.5px; max-width: 26ch; }
+
+/* Horizontal work */
+.work { padding-top: clamp(110px, 14vw, 190px); }
+.work-pin { height: 100svh; overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: center; }
+.track { display: flex; gap: clamp(40px, 7vw, 120px); padding: 0 var(--gutter); will-change: transform; align-items: stretch; position: relative; }
+.panel { flex: 0 0 min(640px, 78vw); display: flex; flex-direction: column; justify-content: flex-start; position: relative; }
+.panel.intro { flex-basis: min(560px, 80vw); justify-content: center; }
+.panel.intro h2 { font-size: clamp(42px, 5vw, 80px); }
+.panel .kind { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); }
+.panel .kind i { width: 9px; height: 9px; border-radius: 50%; }
+.panel .stat { margin-top: 18px; font-variation-settings: 'opsz' 96; font-weight: 300; font-size: clamp(38px, 4.2vw, 68px); text-wrap: balance; line-height: 1; letter-spacing: -.045em; color: var(--mist); min-height: 1.05em; }
+.panel h3 { margin-top: 18px; font-size: 24px; font-weight: 500; letter-spacing: -.015em; line-height: 1.25; }
+.panel p { margin-top: 12px; color: var(--dim); font-size: 16px; line-height: 1.65; max-width: 56ch; }
+.panel .tech { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; color: var(--mist); }
+.panel .tech span::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--glass); margin-right: 8px; vertical-align: 2px; opacity: .7; }
+.stream { position: absolute; left: 0; bottom: -70px; height: 60px; pointer-events: none; overflow: visible; }
+.stream path { fill: none; stroke: var(--glass); stroke-width: 1.5; stroke-dasharray: 2 10; animation: flow 1.6s linear infinite; opacity: .7; }
+@keyframes flow { to { stroke-dashoffset: -24; } }
+.progress { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 48px; height: 1px; background: rgba(212,212,216,.14); }
+.progress i { position: absolute; left: 0; top: 0; height: 1px; width: 100%; background: var(--glass); transform-origin: left; transform: scaleX(0); }
+.progress span { position: absolute; right: 0; top: 12px; font-size: 13px; color: var(--dim); font-variant-numeric: tabular-nums; }
+
+/* Career */
+.chapters { margin-top: 64px; display: grid; grid-template-columns: 3fr 2.4fr 2.1fr; gap: 0; }
+.chapter { padding: 0 32px 0 0; }
+.chapter .bar { height: 3px; background: rgba(212,212,216,.12); border-radius: 2px; overflow: hidden; margin-bottom: 22px; margin-right: 6px; }
+.chapter .bar i { display: block; height: 100%; width: 100%; transform: scaleX(0); transform-origin: left; border-radius: 2px; }
+.chapter .yrs { font-size: 14px; color: var(--dim); }
+.chapter h3 { margin-top: 8px; font-size: 24px; font-weight: 500; letter-spacing: -.015em; line-height: 1.2; }
+.chapter .co { color: var(--mist); opacity: .8; font-size: 15px; }
+.chapter p { margin-top: 12px; color: var(--dim); font-size: 15.5px; max-width: 46ch; }
+.now { color: var(--glass); }
+
+/* Stack */
+.stack { margin-top: 56px; display: flex; flex-wrap: wrap; gap: 10px; max-width: 1100px; }
+.stack .grp { width: 100%; margin-top: 18px; font-size: 14px; color: var(--dim); }
+.stack .grp:first-child { margin-top: 0; }
+.chip { font-size: 17px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(212,212,216,.16); transition: border-color .25s, color .25s, background .25s; cursor: default; }
+.chip:hover { border-color: var(--glass); color: #93c5fd; background: rgba(59,130,246,.08); }
+
+/* Contact */
+.contact { padding-bottom: 120px; }
+.contact .big { display: inline-block; margin-top: 48px; font-variation-settings: 'opsz' 96; font-size: clamp(34px, 5vw, 80px); font-weight: 350; letter-spacing: -.04em; text-decoration: none; background: linear-gradient(90deg, var(--glass), var(--glass)) left bottom / 0 2px no-repeat; transition: background-size .6s cubic-bezier(.16,1,.3,1), color .3s; }
+.contact .big:hover { background-size: 100% 2px; color: var(--glass); }
+.contact .row { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; }
+.contact .facts { margin-top: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; color: var(--dim); font-size: 15px; border-top: 1px solid rgba(212,212,216,.12); padding-top: 28px; }
+.contact .facts b { display: block; color: var(--mist); font-weight: 500; margin-bottom: 6px; }
+footer { padding: 0 0 40px; color: var(--dim); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .nav ul { display: none; }
+  .metrics { grid-template-columns: 1fr 1fr; gap: 40px 0; }
+  .work-pin { height: auto; overflow: visible; }
+  .track { flex-direction: column; gap: 72px; transform: none !important; }
+  .panel, .panel.intro { flex-basis: auto; }
+  .stream, .progress { display: none; }
+  .chapters { grid-template-columns: 1fr; gap: 44px; }
+  .contact .facts { grid-template-columns: 1fr; }
+  .hero { height: auto; min-height: 100svh; padding-bottom: 470px; }
+  .hero-copy { max-width: none; padding-right: var(--gutter); padding-top: 110px; }
+  .intent { left: var(--gutter); }
+  .chips button:nth-child(n+3) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 .w, .hero .tagline, .hero .role, .cta, .intent { opacity: 1 !important; filter: none !important; transform: none !important; }
+  .stream path { animation: none; }
+}
+</style>
 </head>
 <body>
 
-<canvas class="site-net" id="siteNet" aria-hidden="true"></canvas>
-
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="logo">AS<span class="logo-dot">.</span></a>
-    <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="Amandeep_Srivastava_Resume.pdf" download>Resume</a>
-    </div>
-  </div>
+<nav class="nav" id="nav" aria-label="Primary">
+  <a class="mark" href="#top" aria-label="Amandeep Srivastava, back to top">AS<span>.</span></a>
+  <ul>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- ======== Hero ======== -->
-<section class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="container hero-content">
-    <h1>Amandeep <span class="gradient-text">Srivastava</span></h1>
-    <p class="hero-tagline">I build infrastructure platforms that scale, and the AI tooling that makes them effortless to use.</p>
-    <p class="hero-desc">Senior Software Engineer at LinkedIn with 7+ years in infrastructure and distributed systems. I architected LinkedIn's Infrastructure-as-Code authoring platform for a control plane used by 10,000+ engineers to manage ~8M resources across 10+ platforms. I now lead its authoring, CI, and AI pillars, building developer tooling and autonomous workflows that make infrastructure safer and easier to operate.</p>
-    <div class="hero-cta">
-      <a href="Amandeep_Srivastava_Resume.pdf" download class="btn btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Resume
-      </a>
-      <a href="https://www.linkedin.com/in/amandeep-srivastava" target="_blank" class="btn btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0a66c2" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/><path fill="#fff" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
-        LinkedIn
-      </a>
-      <a href="mailto:aman.iitism19@gmail.com" class="btn btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Email
-      </a>
-      <a href="https://github.com/srivama15" target="_blank" class="btn btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        GitHub
-      </a>
+<header class="hero" id="top">
+  <canvas id="field" role="img" aria-label="A field of infrastructure resources grouped by platform, with an AI agent routing requests through the control plane"></canvas>
+  <div class="wrap hero-copy">
+    <h1 class="display" id="name" aria-label="Amandeep Srivastava"><span class="w">Amandeep</span> <span class="w">Srivastava</span></h1>
+    <p class="tagline" data-text="tagline"></p>
+    <p class="role">Senior Software Engineer at LinkedIn</p>
+    <div class="cta">
+      <a class="btn primary" data-link="resume" href="#" download>Download resume</a>
+      <a class="btn" data-link="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" data-link="github" href="#" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
-</section>
-
-<!-- ======== Metrics ======== -->
-<section class="metrics">
-  <div class="container">
-    <div class="metrics-grid reveal">
-      <div class="metric-card">
-        <span class="counter" data-target="10000" data-suffix="+">0</span>
-        <span class="metric-label">Engineers on the platforms &amp; tooling I build</span>
-      </div>
-      <div class="metric-card">
-        <span class="counter" data-target="30" data-suffix="+">0</span>
-        <span class="metric-label">Platforms powered by the resource manager I built</span>
-      </div>
-      <div class="metric-card">
-        <span class="counter" data-target="250" data-suffix="+">0</span>
-        <span class="metric-label">Pre-IaC services migrated onto IaC by an autonomous agent</span>
-      </div>
-      <div class="metric-card">
-        <span class="counter" data-target="98" data-suffix="%">0</span>
-        <span class="metric-label">Fewer apply-time failures from shift-left validation</span>
-      </div>
-    </div>
+  <div class="intent" id="intent">
+    <div class="status" id="status" aria-live="polite"></div>
+    <div class="prompt" id="prompt"><i class="spark"></i><span class="typed" id="typed"></span><button class="run" id="run" type="button">Ask the agent</button></div>
+    <div class="chips" id="chips" aria-label="Example requests"></div>
   </div>
-</section>
+</header>
 
-<!-- ======== Projects ======== -->
-<section id="projects" class="projects">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-tag">// projects</span>
-      <h2>What I've Built</h2>
+<main>
+  <section class="sec wrap" id="impact">
+    <h2 class="display">Backend infrastructure, with an AI layer on top</h2>
+    <p class="lede">I build the control planes, resource managers, and high-throughput services that run infrastructure at LinkedIn, then the agents that let engineers drive all of it by intent. The field above is that idea in miniature: ask for something, and the agent works through the control plane to make it real.</p>
+    <div class="metrics" id="metrics"></div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="work-pin" id="pin">
+      <div class="track" id="track">
+        <div class="panel intro">
+          <h2 class="display">Ten systems, one direction</h2>
+          <p class="lede">From graph infrastructure at Goldman Sachs to the control plane and AI layer at LinkedIn. Keep scrolling.</p>
+        </div>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="bar"></i><span id="count">1 / 10</span></div>
     </div>
-    <div class="bento-grid">
+  </section>
 
-      <div class="project-card featured reveal">
-        <div class="project-tags"><span class="project-tag">IaC Platform</span><span class="project-company li">LinkedIn</span></div>
-        <h3>IaC Control Plane &amp; CLI</h3>
-        <p>LinkedIn's greenfield Infrastructure-as-Code stack: the authoring, validation, and publishing layers plus a unified CLI, now used by 10,000+ engineers and agentic workflows to manage infrastructure. Shift-left validation catches misconfigurations in CI rather than at apply time, cutting apply-time failures 98% across 5,000+ services (projected ~$5M/yr savings); the residual 2% are cases CI cannot validate. Separately, multithreading and rule-engine tuning cut validation runtime ~90% (2.5 min &rarr; ~14s).</p>
-        <div class="project-tech">
-          <span>Go</span><span>Kubernetes</span><span>Crossplane</span><span>Helm</span>
-        </div>
-      </div>
+  <section class="sec wrap" id="career">
+    <h2 class="display">Three chapters so far</h2>
+    <div class="chapters" id="chapters"></div>
+  </section>
 
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">AI + Infra</span><span class="project-company li">LinkedIn</span></div>
-        <h3>LinkedIn's First Infra-Management Agent</h3>
-        <p>Led a 5-engineer team to build the first agentic layer that turns natural-language intent into validated, production-ready infrastructure, driven from the tools engineers already use (VS Code, Cursor, IntelliJ, Claude Code, GitHub Copilot CLI). It's pluggable by design: a new platform integrates by authoring one rules file instead of building its own agent (~17 days &rarr; ~1 day of dev).</p>
-        <div class="project-tech">
-          <span>Python</span><span>Claude SDK</span><span>Copilot SDK</span><span>MCP</span>
-        </div>
-      </div>
+  <section class="sec wrap" id="stack">
+    <h2 class="display">Tools of the trade</h2>
+    <div class="stack" id="stackList"></div>
+  </section>
 
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">Distributed Systems</span><span class="project-company li">LinkedIn</span></div>
-        <h3>Resource Insights Service</h3>
-        <p>A high-throughput (~30M QPS) service that tracks live utilization for a large distributed NoSQL document store. It became a core dependency of five workflows: database provisioning (cluster capacity checks), quota changes, deletion (live-traffic safety checks), usage-based quota recommendations, and infra-cost reporting.</p>
-        <div class="project-tech">
-          <span>Java</span><span>gRPC</span><span>NoSQL</span><span>High-QPS</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">Platform Engineering</span><span class="project-company li">LinkedIn</span></div>
-        <h3>Split-Manifest Architecture</h3>
-        <p>Re-architected the manifest model into a backward-compatible, multi-file structure that lets a single manifest be split across repositories on demand, enabling file-level resource access control and bounding the context automation sees. Rolled it out fleet-wide to 154 services across 90+ teams with zero outages, executed by AI agents that raised the PRs, repaired CI, pinged owners, and tracked closure.</p>
-        <div class="project-tech">
-          <span>Go</span><span>Kubernetes</span><span>Helm</span><span>Multi-agent</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">Platform Engineering</span><span class="project-company li">LinkedIn</span></div>
-        <h3>Infrastructure Resource Manager</h3>
-        <p>The resource-manager core at the heart of a new, centrally managed control plane, designed for pluggable platform onboarding. I brought the MySQL platform on as the first tenant, delivering self-serve provisioning with 70% fewer errors and 53% lower API latency; the pattern is now reused across 30+ platforms (Couchbase, Temporal, TiDB, and more).</p>
-        <div class="project-tech">
-          <span>Java</span><span>gRPC</span><span>Kafka</span><span>MySQL</span><span>REST</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">Platform Engineering</span><span class="project-company li">LinkedIn</span></div>
-        <h3>Long Running Operations Engine</h3>
-        <p>The provisioning engine beneath the control plane, on Kubernetes and Crossplane, reconciling ~8M resources across 10+ platforms. I model complex, multi-step operations as resumable Kubernetes-object state machines; automating these previously manual flows cut provisioning time ~73%, and the engine is now extending into stateful cluster management.</p>
-        <div class="project-tech">
-          <span>Go</span><span>Kubernetes</span><span>Crossplane</span><span>CRDs</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">AI + Infra</span><span class="project-company li">LinkedIn</span></div>
-        <h3>Multi-Layered AI for Infra Ops</h3>
-        <p>AI woven through the platform's operations at several layers: an automated PR-review agent (on the GitHub Copilot SDK) that reviews 100% of migration PRs, a developer on-call agent that triages across design docs, wikis, Slack, tickets, and code, and user-facing assistant layers in the product UI and Slack. Backtested on real incidents, the on-call agent matched human judgment and saved 10&ndash;42 minutes per investigation.</p>
-        <div class="project-tech">
-          <span>Python</span><span>Copilot SDK</span><span>MCP</span><span>Observability</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">Systems Design</span><span class="project-company li">LinkedIn</span></div>
-        <h3>Quota Auto-Rightsizing</h3>
-        <p>A streaming framework that auto-rightsizes capacity for a large distributed document store, with pluggable recommendation engines, policy-driven enforcement, and near-real-time utilization tracking. Targets roughly $1.6M/yr of reclaimable capacity.</p>
-        <div class="project-tech">
-          <span>Java</span><span>Kafka</span><span>Samza</span><span>Stream Processing</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">Systems Design</span><span class="project-company li">LinkedIn</span></div>
-        <h3>Stateful Clusters on Crossplane <span style="opacity:0.6;font-weight:500">· WIP</span></h3>
-        <p>Extending the provisioning engine beyond logical resources into stateful cluster management. A ClickHouse proof-of-concept models the full lifecycle, bootstrap, scale, reshard, red/black failover, backup, and restore, as Kubernetes-object state machines, so teams can move off bespoke operators onto a shared platform.</p>
-        <div class="project-tech">
-          <span>Crossplane</span><span>Kubernetes</span><span>ClickHouse</span><span>Go</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-tags"><span class="project-tag">Distributed Systems</span><span class="project-company gs">Goldman Sachs</span></div>
-        <h3>Graph, Search &amp; Document Infra</h3>
-        <p>Built three pillars of research infrastructure at Goldman Sachs: a database-agnostic graph database for fraud detection (Neptune, JanusGraph backed by a Cassandra store, Gremlin), a graph search service on Elasticsearch (autocomplete, fuzzy, weighted entity lookups), and a document search store on Vespa that replaced a legacy Attivio (Lucene-based) stack and cut response times ~35%.</p>
-        <div class="project-tech">
-          <span>Java</span><span>Gremlin</span><span>JanusGraph</span><span>Neptune</span><span>Elasticsearch</span><span>Cassandra</span><span>Vespa</span>
-        </div>
-      </div>
-
+  <section class="sec wrap contact" id="contact">
+    <h2 class="display">Let's talk infrastructure, control planes, and building at scale</h2>
+    <a class="big" data-link="email" href="#">aman.iitism19@gmail.com</a>
+    <div class="row">
+      <a class="btn" data-link="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" data-link="github" href="#" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" data-link="resume" href="#" download>Resume (PDF)</a>
     </div>
-  </div>
-</section>
-
-<!-- ======== Skills ======== -->
-<section id="skills" class="skills">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-tag">// skills</span>
-      <h2>What I Work With</h2>
+    <div class="facts">
+      <div><b>The journey</b><span data-text="journey"></span></div>
+      <div><b>Education</b><span data-text="education"></span></div>
+      <div><b>Interested in</b><span data-text="interests"></span></div>
     </div>
-    <div class="skills-grid">
-      <div class="skill-group wide reveal">
-        <h4>Distributed Systems &amp; Infra</h4>
-        <div class="skill-tags">
-          <span>Kubernetes</span><span>Crossplane</span><span>Helm</span><span>gRPC</span><span>REST</span><span>CRDs / Operators</span><span>Control Planes</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h4>Languages</h4>
-        <div class="skill-tags">
-          <span>Go</span><span>Java</span><span>Python</span><span>C++</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h4>Data &amp; Streaming</h4>
-        <div class="skill-tags">
-          <span>Kafka</span><span>Samza</span><span>Cassandra</span><span>Vespa</span><span>Elasticsearch</span><span>MySQL</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h4>Graph &amp; Frameworks</h4>
-        <div class="skill-tags">
-          <span>Gremlin</span><span>SPARQL</span><span>JanusGraph</span><span>AWS Neptune</span><span>Spring Boot</span><span>Vert.x</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h4>AI Integration</h4>
-        <div class="skill-tags">
-          <span>Claude SDK</span><span>Copilot SDK</span><span>MCP</span><span>Skills</span><span>Agentic Workflows</span><span>Cursor</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== Experience ======== -->
-<section id="experience" class="experience">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-tag">// experience</span>
-      <h2>Where I've Worked</h2>
-    </div>
-    <div class="timeline reveal">
-      <div class="timeline-item">
-        <span class="timeline-node current"></span>
-        <div class="timeline-role">
-          <h3>Senior Software Engineer</h3>
-          <span class="timeline-current">Current</span>
-        </div>
-        <span class="exp-company">LinkedIn</span>
-        <span class="exp-date">Sep 2024 &ndash; Present</span>
-        <p>Own the authoring, validation, and publishing layers of the IaC control plane and its unified CLI, plus the AI layer that helps engineers author, migrate, and operate infrastructure.</p>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-node"></span>
-        <h3>Software Engineer</h3>
-        <span class="exp-company">LinkedIn</span>
-        <span class="exp-date">May 2022 &ndash; Sep 2024</span>
-        <p>Built the resource-manager core of a new infrastructure control plane, now powering 30+ platforms, and a high-throughput (~30M QPS) resource-insights service that five provisioning and quota workflows depend on. Brought the MySQL platform on as the first tenant: 70% fewer errors, 53% lower API latency.</p>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-node"></span>
-        <h3>Software Engineer &rarr; Sr. SWE</h3>
-        <span class="exp-company">Goldman Sachs</span>
-        <span class="exp-date">May 2019 &ndash; May 2022</span>
-        <p>Built distributed graph, search, and document infrastructure for fraud detection and ML-powered research.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== About (Terminal) ======== -->
-<section id="about" class="about">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-tag">// about</span>
-      <h2>A Bit More</h2>
-    </div>
-    <div class="terminal reveal">
-      <div class="terminal-bar">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="terminal-title">about.sh</span>
-      </div>
-      <div class="terminal-body">
-        <p><span class="prompt">$</span> whoami</p>
-        <p class="terminal-output">Amandeep Srivastava, Infrastructure &amp; Platform Engineer</p>
-        <br>
-        <p><span class="prompt">$</span> cat journey.log</p>
-        <p class="terminal-output">4 years at LinkedIn building the control planes, resource managers, and tooling behind 30+ infrastructure platforms.<br>Before that, graph, search, and document infrastructure for fraud detection at Goldman Sachs.<br>Now layering AI on that foundation, so engineers, on-call, and platform partners work by intent instead of toil.</p>
-        <br>
-        <p><span class="prompt">$</span> echo $EDUCATION</p>
-        <p class="terminal-output">IIT (ISM) Dhanbad &middot; B.Tech CS (Honors) &middot; Class of 2019</p>
-        <br>
-        <p><span class="prompt">$</span> echo $INTERESTS</p>
-        <p class="terminal-output">distributed-systems, control-planes, infrastructure-as-code, agentic-AI, AI-for-infra</p>
-        <br>
-        <p><span class="prompt">$</span> <span class="cursor">_</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== Contact ======== -->
-<section id="contact" class="contact">
-  <div class="container reveal">
-    <span class="section-tag">// contact</span>
-    <h2>Let's Connect</h2>
-    <p>Open to conversations about infrastructure, control-plane engineering, and building at scale.</p>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/amandeep-srivastava" target="_blank" class="btn btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#0a66c2" d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/><path fill="#fff" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
-        LinkedIn
-      </a>
-      <a href="mailto:aman.iitism19@gmail.com" class="btn btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Email Me
-      </a>
-      <a href="https://github.com/srivama15" target="_blank" class="btn btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        GitHub
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>&copy; 2026 Amandeep Srivastava</p>
-  </div>
-</footer>
+  </section>
+  <footer class="wrap">&copy; 2026 Amandeep Srivastava</footer>
+</main>
 
 <script>
-// Scroll reveal
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
+(() => {
+  const S = window.SITE;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const COL = { platform: '#3b82f6', ai: '#8b5cf6', systems: '#06b6d4' };
+
+  $$('[data-link]').forEach(a => a.href = S.links[a.dataset.link]);
+  $$('[data-text]').forEach(el => {
+    const k = el.dataset.text;
+    el.textContent = k === 'tagline' ? S.tagline : k === 'interests' ? S.about.interests.join(', ') : S.about[k];
   });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// Animated counters
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseInt(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      let current = 0;
-      const step = Math.ceil(target / 50);
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
-        }
-        el.textContent = current.toLocaleString() + suffix;
-      }, 25);
-      counterObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-// Hero network: subtle drifting nodes with flowing data pulses, behind the name
-(function () {
-  const canvas = document.getElementById('siteNet');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const COLORS = ['#3b82f6', '#8b5cf6', '#06b6d4'];
-  let w = 0, h = 0, nodes = [], edges = [], raf = 0, resizeTimer = 0;
-
-  function size() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = window.innerWidth; h = window.innerHeight;
-    canvas.width = w * dpr; canvas.height = h * dpr;
-    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  function build() {
-    const n = Math.max(12, Math.min(22, Math.round(w / 70)));
+  /* ---------- Infrastructure field + agent ---------- */
+  const cv = $('#field'), ctx = cv.getContext('2d');
+  const CLUSTERS = ['SQL database', 'Message queue', 'Document store', 'Key-value store', 'Workflow engine', 'Blob store', 'OLAP'];
+  const INTENTS = [
+    { chip: 'Provision a database', text: 'Give my service a SQL database in prod', mode: 'form', targets: ['SQL database'],
+      steps: ['Understood intent', 'Authored manifest', 'Validated in CI', 'Reconciled'], done: 'Database ready, no tickets filed' },
+    { chip: 'Debug a failure', text: 'Why did my queue change fail?', mode: 'heal', targets: ['Message queue'],
+      steps: ['Searched docs, Slack, tickets, code', 'Found root cause', 'Proposed fix'], done: 'Root cause in minutes, not an hour' },
+    { chip: 'Migrate to IaC', text: "Migrate my team's services onto IaC", mode: 'migrate', targets: ['Key-value store', 'Message queue', 'Workflow engine', 'Blob store'],
+      steps: ['Planned migration', 'Raised PRs', 'Repaired CI', 'Tracked to closure'], done: '250+ services migrated this way' },
+    { chip: 'Rightsize capacity', text: 'Is my document store quota oversized?', mode: 'shrink', targets: ['Document store'],
+      steps: ['Read live utilization', 'Recommended quota', 'Applied by policy'], done: 'Capacity reclaimed safely' }
+  ];
+  let introT0 = 0, W = 0, H = 0, dpr = 1, F = null, hub = null, clusters = [], nodes = [], sparks = [], mouse = { x: -1e4, y: -1e4 };
+  const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const rand = (a, b) => a + Math.random() * (b - a);
+  function layout() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const wide = W > 900;
+    const bar = $('#intent').getBoundingClientRect(), hr = cv.getBoundingClientRect();
+    const copyBottom = $('.hero-copy').getBoundingClientRect().bottom - hr.top;
+    F = wide ? { x0: W * .47, x1: W - 30, y0: 96, y1: bar.top - hr.top - 24 }
+             : { x0: 12, x1: W - 12, y0: copyBottom + 10, y1: bar.top - hr.top - 12 };
+    const fw = F.x1 - F.x0, fh = Math.max(160, F.y1 - F.y0);
+    hub = { x: F.x0 + fw * .5, y: F.y0 + fh * .5, pulse: 0 };
+    const R = Math.min(fw, fh) * (wide ? .09 : .075);
+    clusters = CLUSTERS.map((name, i) => {
+      const a = -Math.PI / 2 + i / CLUSTERS.length * Math.PI * 2 + .2;
+      const c = { name, x: hub.x + Math.cos(a) * fw * .37, y: hub.y + Math.sin(a) * (fh * .5 - R * 1.15 - 48), r: R * rand(.85, 1.15), k: 0, kTarget: 0, shrink: 0, lit: 0 };
+      return c;
+    });
     nodes = [];
-    for (let i = 0; i < n; i++) {
-      nodes.push({
-        x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18,
-        r: 1.6 + Math.random() * 2.2, c: COLORS[i % COLORS.length]
-      });
-    }
-    edges = [];
-    const seen = new Set();
-    for (let i = 0; i < nodes.length; i++) {
-      const near = nodes
-        .map((nd, j) => ({ j, d: (nd.x - nodes[i].x) ** 2 + (nd.y - nodes[i].y) ** 2 }))
-        .filter(o => o.j !== i).sort((a, b) => a.d - b.d);
-      for (let k = 0; k < 2 && k < near.length; k++) {
-        const j = near[k].j, key = i < j ? i + '_' + j : j + '_' + i;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        edges.push({ a: i, b: j, t: Math.random(), speed: 0.0025 + Math.random() * 0.004 });
+    clusters.forEach((c, ci) => {
+      const n = Math.round(W > 900 ? rand(46, 64) : rand(26, 36));
+      const list = [];
+      for (let j = 0; j < n; j++) {
+        const a = Math.random() * 6.283, d = Math.sqrt(Math.random()) * c.r;
+        list.push({ c: ci, hx: c.x + Math.cos(a) * d, hy: c.y + Math.sin(a) * d * .9, ph: Math.random() * 6.28, s: rand(.8, 1.8), sz: rand(1.3, 2.5), fault: 0, conv: 0 });
       }
+      // Healthy target: concentric rings, the "reconciled" shape.
+      const rings = [.28, .58, .9]; let idx = 0;
+      const perRing = [Math.round(n * .16), Math.round(n * .32)]; perRing.push(n - perRing[0] - perRing[1]);
+      rings.forEach((rr, ri) => { for (let q = 0; q < perRing[ri]; q++) { const a = q / perRing[ri] * 6.283 + ri * .4; list[idx].fx = c.x + Math.cos(a) * c.r * rr; list[idx].fy = c.y + Math.sin(a) * c.r * rr; idx++; } });
+      list.forEach(nd => { nd.x = nd.hx; nd.y = nd.hy; });
+      list.forEach((nd, j) => { nd.nb = list.map((o, k) => [k, (o.hx - nd.hx) ** 2 + (o.hy - nd.hy) ** 2]).sort((p, q) => p[1] - q[1]).slice(1, 3).map(p => list[p[0]]); });
+      c.nodes = list; nodes.push(...list);
+    });
+    introT0 ||= performance.now();
+  }
+  const glow = (x, y, r, rgb, a) => {
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, `rgba(${rgb},${a})`); g.addColorStop(1, `rgba(${rgb},0)`);
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
+  };
+  function draw(now) {
+    if (!hub) return;
+    ctx.clearRect(0, 0, W, H);
+    // One-time intro: clusters expand out of the control plane.
+    const intro = i => reduce ? 1 : ease(Math.min(1, Math.max(0, (now - introT0 - 250 - i * 90) / 1300)));
+    glow(hub.x, hub.y, 150, '59,130,246', .16 + hub.pulse * .12);
+    // Backbone: control plane to every platform, with a steady data pulse on each link.
+    clusters.forEach((c, i) => {
+      const e = intro(i), cx = hub.x + (c.x - hub.x) * e, cy = hub.y + (c.y - hub.y) * e;
+      ctx.strokeStyle = `rgba(59,130,246,${(.24 + c.lit * .5) * e})`; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(hub.x, hub.y); ctx.lineTo(cx, cy); ctx.stroke();
+      if (!reduce && e === 1) {
+        const t = (now / 2800 + i * .137) % 1, px = hub.x + (c.x - hub.x) * t, py = hub.y + (c.y - hub.y) * t;
+        ctx.fillStyle = `rgba(147,197,253,${Math.sin(Math.PI * t) * .85})`;
+        ctx.beginPath(); ctx.arc(px, py, 1.9, 0, 6.283); ctx.fill();
+      }
+    });
+    clusters.forEach((c, ci) => {
+      const e = intro(ci);
+      ctx.save(); ctx.globalAlpha = e;
+      ctx.translate(hub.x, hub.y); ctx.scale(e, e); ctx.translate(-hub.x, -hub.y);
+      c.k += (c.kTarget - c.k) * .06;
+      c.lit *= .985;
+      const k = ease(Math.min(1, Math.max(0, c.k)));
+      const sc = 1 - c.shrink * .38;
+      c.nodes.forEach(nd => {
+        const wob = 1 - k;
+        let tx = nd.hx + (nd.fx - nd.hx) * k + Math.cos(now * .0006 * nd.s + nd.ph) * 3 * wob;
+        let ty = nd.hy + (nd.fy - nd.hy) * k + Math.sin(now * .0007 * nd.s + nd.ph) * 3 * wob;
+        tx = c.x + (tx - c.x) * sc; ty = c.y + (ty - c.y) * sc;
+        const dx = tx - mouse.x, dy = ty - mouse.y, d = Math.hypot(dx, dy);
+        nd.glow = Math.max(0, 1 - d / 150);
+        if (d < 90) { tx += dx / d * (90 - d) * .25; ty += dy / d * (90 - d) * .25; }
+        nd.x += (tx - nd.x) * .12; nd.y += (ty - nd.y) * .12;
+      });
+      glow(c.x, c.y, c.r * 1.7 * sc, k > .05 || c.lit > .05 ? '6,182,212' : '59,130,246', .1 + k * .12 + c.lit * .14);
+      if (k > .02) {
+        ctx.strokeStyle = `rgba(6,182,212,${k * .45})`; ctx.lineWidth = .8;
+        [.28, .58, .9].forEach(rr => { ctx.beginPath(); ctx.arc(c.x, c.y, c.r * rr * sc, 0, 6.283); ctx.stroke(); });
+      }
+      c.nodes.forEach(nd => nd.nb.forEach(o => {
+        const a = (.2 + nd.glow * .35) * (1 - k);
+        ctx.strokeStyle = `rgba(96,165,250,${a})`; ctx.lineWidth = .8;
+        ctx.beginPath(); ctx.moveTo(nd.x, nd.y); ctx.lineTo(o.x, o.y); ctx.stroke();
+      }));
+      c.nodes.forEach(nd => {
+        const base = .62 + k * .35 + nd.glow * .4 + c.lit * .3;
+        if (nd.fault > .01) ctx.fillStyle = `rgba(212,160,23,${.6 + nd.fault * .4})`;
+        else if (nd.conv > .01) ctx.fillStyle = `rgba(${Math.round(212 - 206 * nd.conv)},${Math.round(212 - 30 * nd.conv)},${Math.round(216 - 4 * nd.conv)},${Math.min(1, base)})`;
+        else ctx.fillStyle = k > .05 || nd.glow > .05 ? `rgba(6,182,212,${Math.min(1, base)})` : `rgba(147,197,253,${Math.min(1, base)})`;
+        const r = nd.sz + nd.glow * 1.2 + nd.fault * 2.2;
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, r, 0, 6.283); ctx.fill();
+      });
+      ctx.fillStyle = `rgba(228,228,231,${.78 + c.lit * .22})`;
+      ctx.font = "500 14px 'Bricolage Grotesque'"; ctx.textAlign = 'center';
+      ctx.fillText(c.name, c.x, c.y + c.r * sc + 24);
+      ctx.restore();
+    });
+    // Hub
+    hub.pulse *= .96;
+    const breathe = reduce ? 0 : Math.sin(now / 900) * 1.5;
+    ctx.fillStyle = '#0d1424'; ctx.strokeStyle = `rgba(96,165,250,${.85 + hub.pulse * .15})`; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.arc(hub.x, hub.y, 44 + breathe + hub.pulse * 6, 0, 6.283); ctx.fill(); ctx.stroke();
+    ctx.strokeStyle = 'rgba(59,130,246,.25)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.arc(hub.x, hub.y, 55 + breathe * 1.5, 0, 6.283); ctx.stroke();
+    if (hub.pulse > .02) { ctx.strokeStyle = `rgba(139,92,246,${hub.pulse * .7})`; ctx.beginPath(); ctx.arc(hub.x, hub.y, 44 + (1 - hub.pulse) * 44, 0, 6.283); ctx.stroke(); }
+    ctx.fillStyle = '#fafafa'; ctx.font = "600 13px 'Bricolage Grotesque'"; ctx.textAlign = 'center';
+    ctx.fillText('control', hub.x, hub.y + 6); ctx.fillText('plane', hub.x, hub.y + 21);
+    ctx.fillStyle = '#93c5fd'; ctx.font = "700 13px 'Bricolage Grotesque'";
+    ctx.fillText('K8s', hub.x, hub.y - 10);
+    // Agent sparks
+    for (let i = sparks.length - 1; i >= 0; i--) {
+      const s = sparks[i]; const t = Math.min(1, (now - s.t0) / s.dur), e = ease(t);
+      const x = (1 - e) ** 2 * s.a.x + 2 * (1 - e) * e * s.m.x + e * e * s.b.x;
+      const y = (1 - e) ** 2 * s.a.y + 2 * (1 - e) * e * s.m.y + e * e * s.b.y;
+      s.trail.push([x, y]); if (s.trail.length > 22) s.trail.shift();
+      s.trail.forEach(([px, py], j) => { ctx.fillStyle = `rgba(139,92,246,${j / s.trail.length * .6})`; ctx.beginPath(); ctx.arc(px, py, 1 + j / s.trail.length * 2.2, 0, 6.283); ctx.fill(); });
+      ctx.fillStyle = '#ede9fe'; ctx.shadowColor = '#8b5cf6'; ctx.shadowBlur = 18;
+      ctx.beginPath(); ctx.arc(x, y, 3.6, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
+      if (t >= 1) { sparks.splice(i, 1); s.onDone && s.onDone(); }
     }
   }
-
-  function render() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.lineWidth = 1;
-    for (const e of edges) {
-      const a = nodes[e.a], b = nodes[e.b];
-      ctx.strokeStyle = 'rgba(124,140,235,0.16)';
-      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-      const px = a.x + (b.x - a.x) * e.t, py = a.y + (b.y - a.y) * e.t;
-      ctx.globalAlpha = 0.95; ctx.fillStyle = a.c;
-      ctx.beginPath(); ctx.arc(px, py, 1.8, 0, 6.283); ctx.fill();
-      ctx.globalAlpha = 1;
-    }
-    ctx.shadowBlur = 8;
-    for (const nd of nodes) {
-      ctx.shadowColor = nd.c; ctx.fillStyle = nd.c; ctx.globalAlpha = 0.6;
-      ctx.beginPath(); ctx.arc(nd.x, nd.y, nd.r, 0, 6.283); ctx.fill();
-    }
-    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  function fly(a, b, dur) {
+    return new Promise(res => {
+      const m = { x: (a.x + b.x) / 2 + (b.y - a.y) * .25, y: (a.y + b.y) / 2 - Math.abs(b.x - a.x) * .15 - 30 };
+      sparks.push({ a, b, m, t0: performance.now(), dur: reduce ? 1 : dur, trail: [], onDone: res });
+    });
   }
-
-  function tick() {
-    for (const nd of nodes) {
-      nd.x += nd.vx; nd.y += nd.vy;
-      if (nd.x < 0 || nd.x > w) nd.vx *= -1;
-      if (nd.y < 0 || nd.y > h) nd.vy *= -1;
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  const typed = $('#typed'), statusEl = $('#status'), promptEl = $('#prompt');
+  $('#chips').innerHTML = INTENTS.map((it, i) => `<button type="button" data-i="${i}" aria-pressed="false">${esc(it.chip)}</button>`).join('');
+  let runId = 0, current = 0, autoTimer = 0, userTook = 0;
+  const setSteps = (it, n, done) => {
+    statusEl.innerHTML = done ? `<span class="done">Done. ${esc(it.done)}</span>`
+      : it.steps.map((s, i) => `<span class="${i < n ? 'done' : i === n ? 'on' : ''}">${esc(s)}</span>`).join('');
+  };
+  async function run(i) {
+    const id = ++runId, it = INTENTS[i]; current = i;
+    $$('#chips button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.i === i)));
+    clusters.forEach(c => { c.kTarget = 0; c.shrink = 0; c.nodes.forEach(n => { n.fault = 0; n.conv = 0; }); });
+    statusEl.innerHTML = '';
+    for (let j = 0; j <= it.text.length; j++) { if (id !== runId) return; typed.textContent = it.text.slice(0, j); if (!reduce) await wait(26); }
+    typed.textContent = it.text;
+    await wait(350); if (id !== runId) return;
+    promptEl.classList.add('busy');
+    const hr = cv.getBoundingClientRect(), pr = $('.spark', promptEl).getBoundingClientRect();
+    const from = { x: pr.left - hr.left + 5, y: pr.top - hr.top + 5 };
+    const targets = it.targets.map(n => clusters.find(c => c.name === n));
+    let fault = null;
+    if (it.mode === 'heal') { fault = targets[0].nodes[Math.floor(targets[0].nodes.length * .7)]; fault.fault = 1; }
+    setSteps(it, 0);
+    await fly(from, hub, 800); if (id !== runId) return;
+    hub.pulse = 1;
+    for (let t = 0; t < targets.length; t++) {
+      const c = targets[t];
+      setSteps(it, Math.min(it.steps.length - 1, t + 1));
+      await fly(hub, c, targets.length > 1 ? 520 : 760); if (id !== runId) return;
+      c.lit = 1;
+      if (it.mode === 'form' || it.mode === 'migrate') c.kTarget = 1;
+      if (it.mode === 'migrate') c.nodes.forEach(n => n.conv = 1);
+      if (it.mode === 'shrink') { c.shrink = 1; c.kTarget = 1; }
+      if (it.mode === 'heal') { await wait(700); fault.fault = 0; c.kTarget = 1; }
     }
-    for (const e of edges) { e.t += e.speed; if (e.t > 1) e.t -= 1; }
-    render();
-    raf = requestAnimationFrame(tick);
+    for (let s = targets.length; s < it.steps.length; s++) { await wait(420); if (id !== runId) return; setSteps(it, s + 1); }
+    setSteps(it, it.steps.length, true);
+    promptEl.classList.remove('busy');
+    await wait(3600); if (id !== runId) return;
+    targets.forEach(c => { c.kTarget = 0; c.shrink = 0; c.nodes.forEach(n => n.conv = 0); });
+    if (!reduce && Date.now() - userTook > 15000) { await wait(1400); if (id === runId) run((current + 1) % INTENTS.length); }
   }
+  $('#chips').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; userTook = Date.now(); run(+b.dataset.i); });
+  $('#run').addEventListener('click', () => { userTook = Date.now(); run((current + 1) % INTENTS.length); });
 
-  function start() {
-    size(); build(); render();
-    if (!reduce) { cancelAnimationFrame(raf); tick(); }
-  }
-
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { size(); build(); render(); }, 150);
+  let heroVisible = true, raf = 0;
+  const loop = now => { draw(now); raf = heroVisible ? requestAnimationFrame(loop) : 0; };
+  const hero = $('.hero');
+  hero.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -1e4; });
+  let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(layout, 120); });
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; if (heroVisible && !raf) raf = requestAnimationFrame(loop); }).observe(hero);
+  document.fonts.ready.then(() => {
+    layout();
+    raf = requestAnimationFrame(loop);
+    setTimeout(() => run(0), reduce ? 0 : 2200);
   });
-  start();
+
+  /* ---------- Content ---------- */
+  $('#metrics').innerHTML = S.metrics.map(m => `<div class="metric" data-v="${m.value}" data-s="${m.suffix}"><b>0${m.suffix}</b><p>${esc(m.label)}</p></div>`).join('');
+  const track = $('#track');
+  const order = ['gs', 'insights', 'quota', 'rm', 'lro', 'iac', 'split', 'agent', 'aiops', 'stateful'];
+  const kindName = { platform: 'Platform engineering', ai: 'AI for infrastructure', systems: 'Distributed systems' };
+  order.forEach(id => {
+    const p = S.projects.find(x => x.id === id);
+    const el = document.createElement('article'); el.className = 'panel';
+    el.innerHTML = `<span class="kind"><i style="background:${COL[p.kind]}"></i>${kindName[p.kind]}, ${esc(p.company)}</span>
+      <div class="stat">${esc(p.stat)}</div><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p>
+      <div class="tech">${p.tech.map(t => `<span>${esc(t)}</span>`).join('')}</div>`;
+    track.appendChild(el);
+  });
+  const stream = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  stream.classList.add('stream'); track.appendChild(stream);
+  function drawStream() {
+    const w = track.scrollWidth; stream.setAttribute('width', w); stream.setAttribute('viewBox', `0 0 ${w} 60`);
+    let d = 'M 0 30'; for (let x = 0; x <= w; x += 40) d += ` L ${x} ${30 + Math.sin(x / 260) * 16}`;
+    stream.innerHTML = `<path d="${d}"></path>`;
+  }
+  drawStream();
+
+  $('#chapters').innerHTML = S.experience.map((e, i) => `<div class="chapter"><div class="bar"><i style="background:${['#06b6d4', '#3b82f6', '#8b5cf6'][i]}"></i></div>
+    <div class="yrs">${esc(e.start)} to <span class="${e.current ? 'now' : ''}">${esc(e.end)}</span></div>
+    <h3>${esc(e.role)}</h3><div class="co">${esc(e.company)}</div><p>${esc(e.body)}</p></div>`).join('');
+  $('#stackList').innerHTML = S.skills.map(g => `<div class="grp">${esc(g.group)}</div>${g.items.map(i => `<span class="chip">${esc(i)}</span>`).join('')}`).join('');
+
+  /* ---------- Motion ---------- */
+  const nav = $('#nav');
+  addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
+
+  const words = $$('#name .w');
+  if (!window.gsap || reduce) {
+    $$('.metric').forEach(m => { m.classList.add('in'); $('b', m).textContent = (+m.dataset.v).toLocaleString() + m.dataset.s; });
+    $$('.chapter .bar i').forEach(b => b.style.transform = 'none');
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis = new Lenis({ lerp: .1 });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+  $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = a.getAttribute('href'); if (t.length > 1) { e.preventDefault(); lenis.scrollTo(t); } }));
+
+  const tl = gsap.timeline({ delay: .25 });
+  tl.to(words, { opacity: 1, filter: 'blur(0px)', y: 0, duration: 1.2, ease: 'expo.out', stagger: .14 })
+    .to('.hero .tagline', { opacity: 1, duration: .9, ease: 'power2.out' }, '-=.7')
+    .to('.hero .role', { opacity: 1, duration: .9 }, '-=.7')
+    .to('.cta', { opacity: 1, duration: .9 }, '-=.7')
+    .to('#intent', { opacity: 1, duration: 1 }, '-=.4');
+
+  $$('.metric').forEach((m, i) => ScrollTrigger.create({ trigger: m, start: 'top 85%', once: true, onEnter: () => {
+    setTimeout(() => {
+      m.classList.add('in');
+      const o = { v: 0 }, b = $('b', m);
+      gsap.to(o, { v: +m.dataset.v, duration: 1.6, ease: 'expo.out', onUpdate: () => b.textContent = Math.round(o.v).toLocaleString() + m.dataset.s });
+    }, i * 120);
+  } }));
+
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 901px)', () => {
+    const dist = () => track.scrollWidth - innerWidth;
+    const panels = $$('.panel', track).slice(1);
+    const tw = gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: {
+      trigger: '#pin', pin: true, scrub: .8, start: 'top top', end: () => '+=' + dist(), invalidateOnRefresh: true,
+      onUpdate: self => {
+        $('#bar').style.transform = `scaleX(${self.progress})`;
+        $('#count').textContent = `${Math.min(panels.length, Math.max(1, Math.round(self.progress * (panels.length - 1)) + 1))} / ${panels.length}`;
+      }
+    } });
+    panels.forEach(p => {
+      gsap.fromTo($('.stat', p), { xPercent: 18, opacity: .25 }, { xPercent: 0, opacity: 1, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: tw, start: 'left 95%', end: 'left 45%', scrub: true } });
+      gsap.fromTo([$('h3', p), $('p', p), $('.tech', p)], { opacity: .15 }, { opacity: 1, ease: 'none', stagger: .05, scrollTrigger: { trigger: p, containerAnimation: tw, start: 'left 85%', end: 'left 40%', scrub: true } });
+    });
+  });
+
+  $$('.chapter .bar i').forEach((b, i) => gsap.to(b, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '#chapters', start: `top ${80 - i * 12}%`, end: `top ${45 - i * 12}%`, scrub: true } }));
+  addEventListener('load', () => { drawStream(); ScrollTrigger.refresh(); });
 })();
 </script>
-
 </body>
 </html>
