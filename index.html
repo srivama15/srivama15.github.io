@@ -167,6 +167,8 @@ a { color: inherit; }
 .cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; opacity: 0; }
 .btn { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; border-radius: 12px; font: 500 15px 'Bricolage Grotesque', sans-serif; text-decoration: none; color: var(--mist); background: rgba(212,212,216,.06); border: 1px solid rgba(212,212,216,.16); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
 .btn svg { flex: none; }
+.cta { gap: 8px; }
+.cta .btn { padding: 0 16px; gap: 8px; }
 .btn:hover { background: rgba(212,212,216,.12); border-color: rgba(212,212,216,.35); }
 .btn.primary { background: var(--glass); color: #fff; border-color: var(--glass); font-weight: 600; }
 .btn.primary:hover { background: #2563eb; border-color: #2563eb; box-shadow: 0 0 20px rgba(59,130,246,.3); }
@@ -487,9 +489,9 @@ footer { padding: 0 0 40px; color: var(--dim); font-size: 13px; }
     ctx.beginPath(); ctx.arc(hub.x, hub.y, 55 + breathe * 1.5, 0, 6.283); ctx.stroke();
     if (hub.pulse > .02) { ctx.strokeStyle = `rgba(139,92,246,${hub.pulse * .7})`; ctx.beginPath(); ctx.arc(hub.x, hub.y, 44 + (1 - hub.pulse) * 44, 0, 6.283); ctx.stroke(); }
     ctx.fillStyle = '#fafafa'; ctx.font = "600 13px 'Bricolage Grotesque'"; ctx.textAlign = 'center';
-    ctx.fillText('control', hub.x, hub.y + 6); ctx.fillText('plane', hub.x, hub.y + 21);
+    ctx.fillText('Control', hub.x, hub.y + 6); ctx.fillText('Plane', hub.x, hub.y + 21);
     ctx.fillStyle = '#93c5fd'; ctx.font = "700 13px 'Bricolage Grotesque'";
-    ctx.fillText('K8s', hub.x, hub.y - 10);
+    ctx.fillText('IaC', hub.x, hub.y - 10);
     // Agent sparks
     for (let i = sparks.length - 1; i >= 0; i--) {
       const s = sparks[i]; const t = Math.min(1, (now - s.t0) / s.dur), e = ease(t);
