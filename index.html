@@ -616,23 +616,23 @@ footer { padding: 0 0 40px; color: var(--dim); font-size: 13px; }
       cv.width = w * d; cv.height = h * d; c.setTransform(d, 0, 0, d, 0, 0);
     };
     const build = () => {
-      const n = Math.max(12, Math.min(22, Math.round(w / 70)));
-      nodes = Array.from({ length: n }, (_, i) => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - .5) * .18, vy: (Math.random() - .5) * .18, r: 1.6 + Math.random() * 2.2, c: COLORS[i % 3] }));
+      const n = Math.max(10, Math.min(18, Math.round(w / 85)));
+      nodes = Array.from({ length: n }, (_, i) => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - .5) * .1, vy: (Math.random() - .5) * .1, r: 1.2 + Math.random() * 1.4, c: COLORS[i % 3] }));
       edges = []; const seen = new Set();
       nodes.forEach((a, i) => nodes.map((b, j) => [j, (b.x - a.x) ** 2 + (b.y - a.y) ** 2]).filter(o => o[0] !== i).sort((p, q) => p[1] - q[1]).slice(0, 2).forEach(([j]) => {
         const key = i < j ? i + '_' + j : j + '_' + i; if (seen.has(key)) return; seen.add(key);
-        edges.push({ a: i, b: j, t: Math.random(), sp: .0025 + Math.random() * .004 });
+        edges.push({ a: i, b: j, t: Math.random(), sp: .0012 + Math.random() * .0018 });
       }));
     };
     const render = () => {
       c.clearRect(0, 0, w, h); c.lineWidth = 1;
       edges.forEach(e => {
         const a = nodes[e.a], b = nodes[e.b];
-        c.strokeStyle = 'rgba(124,140,235,.16)'; c.beginPath(); c.moveTo(a.x, a.y); c.lineTo(b.x, b.y); c.stroke();
-        c.globalAlpha = .95; c.fillStyle = a.c; c.beginPath(); c.arc(a.x + (b.x - a.x) * e.t, a.y + (b.y - a.y) * e.t, 1.8, 0, 6.283); c.fill(); c.globalAlpha = 1;
+        c.strokeStyle = 'rgba(124,140,235,.07)'; c.beginPath(); c.moveTo(a.x, a.y); c.lineTo(b.x, b.y); c.stroke();
+        c.globalAlpha = .3; c.fillStyle = a.c; c.beginPath(); c.arc(a.x + (b.x - a.x) * e.t, a.y + (b.y - a.y) * e.t, 1.3, 0, 6.283); c.fill(); c.globalAlpha = 1;
       });
-      c.shadowBlur = 8;
-      nodes.forEach(nd => { c.shadowColor = nd.c; c.fillStyle = nd.c; c.globalAlpha = .6; c.beginPath(); c.arc(nd.x, nd.y, nd.r, 0, 6.283); c.fill(); });
+      c.shadowBlur = 0;
+      nodes.forEach(nd => { c.fillStyle = nd.c; c.globalAlpha = .25; c.beginPath(); c.arc(nd.x, nd.y, nd.r, 0, 6.283); c.fill(); });
       c.shadowBlur = 0; c.globalAlpha = 1;
     };
     const tick = () => {
