@@ -311,8 +311,8 @@ footer { padding: 0 0 40px; color: var(--dim); font-size: 13px; }
     <div class="work-pin" id="pin">
       <div class="track" id="track">
         <div class="panel intro">
-          <h2 class="display">Ten systems, one direction</h2>
-          <p class="lede">From graph infrastructure at Goldman Sachs to the control plane and AI layer at LinkedIn. Keep scrolling.</p>
+          <h2 class="display">Ten systems I've built</h2>
+          <p class="lede">Control planes, high-throughput services, and the agents on top of them, from LinkedIn and Goldman Sachs. Keep scrolling.</p>
         </div>
       </div>
       <div class="progress" aria-hidden="true"><i id="bar"></i><span id="count">1 / 10</span></div>
@@ -566,7 +566,7 @@ footer { padding: 0 0 40px; color: var(--dim); font-size: 13px; }
   /* ---------- Content ---------- */
   $('#metrics').innerHTML = S.metrics.map(m => `<div class="metric" data-v="${m.value}" data-s="${m.suffix}"><b>0${m.suffix}</b><p>${esc(m.label)}</p></div>`).join('');
   const track = $('#track');
-  const order = ['gs', 'insights', 'quota', 'rm', 'lro', 'iac', 'split', 'agent', 'aiops', 'stateful'];
+  const order = S.projects.map(p => p.id);
   const kindName = { platform: 'Platform engineering', ai: 'AI for infrastructure', systems: 'Distributed systems' };
   order.forEach(id => {
     const p = S.projects.find(x => x.id === id);
